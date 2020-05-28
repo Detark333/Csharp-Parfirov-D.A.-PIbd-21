@@ -7,3 +7,12 @@ E:\MyGit\TechP\Csharp-Parfirov-D.A.-PIbd-21\AbstractStore\AbstractJewerlyStoreBu
 E:\MyGit\TechP\Csharp-Parfirov-D.A.-PIbd-21\AbstractStore\AbstractJewerlyStoreBusinessLogic\bin\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.pdb
 E:\MyGit\TechP\Csharp-Parfirov-D.A.-PIbd-21\AbstractStore\AbstractJewerlyStoreBusinessLogic\obj\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.dll
 E:\MyGit\TechP\Csharp-Parfirov-D.A.-PIbd-21\AbstractStore\AbstractJewerlyStoreBusinessLogic\obj\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.pdb
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\bin\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.deps.json
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\bin\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.dll
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\bin\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.pdb
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\obj\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.csprojAssemblyReference.cache
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\obj\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.csproj.CoreCompileInputs.cache
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\obj\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.AssemblyInfoInputs.cache
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\obj\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.AssemblyInfo.cs
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\obj\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.dll
+E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreBusinessLogic\obj\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.pdb

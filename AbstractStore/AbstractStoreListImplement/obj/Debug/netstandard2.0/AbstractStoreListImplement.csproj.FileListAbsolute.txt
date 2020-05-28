@@ -10,3 +10,15 @@ E:\MyGit\TechP\Csharp-Parfirov-D.A.-PIbd-21\AbstractStore\AbstractStoreListImple
 E:\MyGit\TechP\Csharp-Parfirov-D.A.-PIbd-21\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.csproj.CopyComplete
 E:\MyGit\TechP\Csharp-Parfirov-D.A.-PIbd-21\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.dll
 E:\MyGit\TechP\Csharp-Parfirov-D.A.-PIbd-21\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.pdb
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\bin\Debug\netstandard2.0\AbstractStoreListImplement.deps.json
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\bin\Debug\netstandard2.0\AbstractStoreListImplement.dll
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\bin\Debug\netstandard2.0\AbstractStoreListImplement.pdb
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\bin\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.dll
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\bin\Debug\netstandard2.0\AbstractJewerlyStoreBusinessLogic.pdb
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.csprojAssemblyReference.cache
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.csproj.CoreCompileInputs.cache
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.AssemblyInfoInputs.cache
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.AssemblyInfo.cs
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.csproj.CopyComplete
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.dll
+E:\MyGit\TP\AbstractStore\AbstractStoreListImplement\obj\Debug\netstandard2.0\AbstractStoreListImplement.pdb
