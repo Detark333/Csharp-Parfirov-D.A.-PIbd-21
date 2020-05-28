@@ -55,11 +55,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCountJewerly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCountJewerly.Designer.cs">
+      <DependentUpon>FormCountJewerly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormJewerly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormJewerly.Designer.cs">
+      <DependentUpon>FormJewerly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormJProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormJProduct.Designer.cs">
+      <DependentUpon>FormJProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrder.Designer.cs">
+      <DependentUpon>FormOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProduct.Designer.cs">
+      <DependentUpon>FormProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProductJewerly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductJewerly.Designer.cs">
+      <DependentUpon>FormProductJewerly.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
