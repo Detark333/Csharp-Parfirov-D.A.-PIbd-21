@@ -1,20 +1,14 @@
-﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
+﻿
+using AbstractJewerlyStoreBusinessLogic.BindingModels;
 using AbstractJewerlyStoreBusinessLogic.BuisnessLogic;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
-namespace AbstractJewerlyStoreView
+namespace AbstractJewelryStoreView
 {
     public partial class FormMain : Form
     {
@@ -53,21 +47,21 @@ namespace AbstractJewerlyStoreView
 
         private void JewerlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormCountJewerly>();
-            form.ShowDialog();
+            //var form = Container.Resolve<FormCountJewerly>();
+            //form.ShowDialog();
         }
 
         private void ProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormJProduct>();
-            form.ShowDialog();
+            //var form = Container.Resolve<FormJProduct>();
+            //form.ShowDialog();
         }
 
         private void ButtonCreateOrder_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormOrder>();
-            form.ShowDialog();
-            LoadData();
+           // var form = Container.Resolve<FormOrder>();
+           // form.ShowDialog();
+           // LoadData();
         }
 
         private void ButtonToGiveToPerform_Click(object sender, EventArgs e)

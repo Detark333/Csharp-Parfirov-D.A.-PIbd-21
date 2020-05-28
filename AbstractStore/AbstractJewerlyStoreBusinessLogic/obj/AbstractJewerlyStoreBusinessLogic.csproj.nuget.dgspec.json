@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj": {}
+    "E:\\MyGit\\TP\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj": {}
   },
   "projects": {
-    "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj": {
+    "E:\\MyGit\\TP\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj",
+        "projectUniqueName": "E:\\MyGit\\TP\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj",
         "projectName": "AbstractJewerlyStoreBusinessLogic",
-        "projectPath": "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj",
+        "projectPath": "E:\\MyGit\\TP\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj",
         "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
-        "outputPath": "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\obj\\",
+        "outputPath": "E:\\MyGit\\TP\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

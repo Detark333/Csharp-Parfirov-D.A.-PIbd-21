@@ -303,11 +303,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractStoreListImplement\\AbstractStoreListImplement.csproj",
+      "projectUniqueName": "E:\\MyGit\\TP\\AbstractStore\\AbstractStoreListImplement\\AbstractStoreListImplement.csproj",
       "projectName": "AbstractStoreListImplement",
-      "projectPath": "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractStoreListImplement\\AbstractStoreListImplement.csproj",
+      "projectPath": "E:\\MyGit\\TP\\AbstractStore\\AbstractStoreListImplement\\AbstractStoreListImplement.csproj",
       "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
-      "outputPath": "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractStoreListImplement\\obj\\",
+      "outputPath": "E:\\MyGit\\TP\\AbstractStore\\AbstractStoreListImplement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -326,8 +326,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj": {
-              "projectPath": "E:\\MyGit\\TechP\\Csharp-Parfirov-D.A.-PIbd-21\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj"
+            "E:\\MyGit\\TP\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj": {
+              "projectPath": "E:\\MyGit\\TP\\AbstractStore\\AbstractJewerlyStoreBusinessLogic\\AbstractJewerlyStoreBusinessLogic.csproj"
             }
           }
         }
