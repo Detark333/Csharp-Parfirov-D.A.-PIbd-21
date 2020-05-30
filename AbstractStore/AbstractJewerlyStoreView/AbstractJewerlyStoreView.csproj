@@ -133,10 +133,6 @@
       <Project>{F5EB8C23-E0BF-4CF3-97F4-BCDCF334345D}</Project>
       <Name>AbstractJewerlyStoreBusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AbstractJewerlyStoreFileImplement\AbstractJewerlyStoreFileImplement.csproj">
-      <Project>{C912C854-F8C8-4389-B107-C75ED591CB67}</Project>
-      <Name>AbstractJewerlyStoreFileImplement</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AbstractStoreListImplement\AbstractStoreListImplement.csproj">
       <Project>{C8138F48-FF3C-434A-970D-F519D1BA0ADD}</Project>
       <Name>AbstractStoreListImplement</Name>

@@ -20,5 +20,3 @@ E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreView\bin\Debug\Unity.Container.pdb
 E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreView\obj\Debug\AbstractJewerlyStoreView.csproj.CopyComplete
 E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreView\obj\Debug\AbstractJewerlyStoreView.exe
 E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreView\obj\Debug\AbstractJewerlyStoreView.pdb
-E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreView\bin\Debug\AbstractJewerlyStoreFileImplement.dll
-E:\MyGit\TP\AbstractStore\AbstractJewerlyStoreView\bin\Debug\AbstractJewerlyStoreFileImplement.pdb
