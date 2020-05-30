@@ -55,7 +55,8 @@ namespace AbstractJewelryStoreView
             else
             {
                 productJewerlies = new Dictionary<int, (string, int)>();
-            }
+            }
+
         }
 
         private void LoadData()
@@ -92,7 +93,8 @@ namespace AbstractJewelryStoreView
                     productJewerlies.Add(form.Id, (form.JewerlyName, form.Count));
                 }
                 LoadData();
-            }
+            }
+
         }
 
         private void ButtonChange_Click(object sender, EventArgs e)
@@ -108,7 +110,8 @@ namespace AbstractJewelryStoreView
                     productJewerlies[form.Id] = (form.JewerlyName, form.Count);
                     LoadData();
                 }
-            }
+            }
+
         }
 
         private void ButtonDelete_Click(object sender, EventArgs e)
@@ -164,7 +167,7 @@ namespace AbstractJewelryStoreView
                     Id = id,
                     ProductName = textBoxName.Text,
                     Price = Convert.ToDecimal(textBoxPrice.Text),
-                    ProductComponents = productJewerlies
+                    ProductJewerlies = productJewerlies
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -175,7 +178,8 @@ namespace AbstractJewelryStoreView
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
-            }
+            }
+
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
