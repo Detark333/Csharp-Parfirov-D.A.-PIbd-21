@@ -1,7 +1,7 @@
 ﻿using AbstractJewelryStoreView;
 using AbstractJewerlyStoreBusinessLogic.BuisnessLogic;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
-using AbstractJewerlyStoreFileImplement.Implements;
+using AbstractStoreDatabaseImplement.Implements;
 using System;
 using System.Windows.Forms;
 using Unity;
