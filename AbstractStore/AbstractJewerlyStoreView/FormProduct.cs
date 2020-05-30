@@ -164,7 +164,7 @@ namespace AbstractJewelryStoreView
                     Id = id,
                     ProductName = textBoxName.Text,
                     Price = Convert.ToDecimal(textBoxPrice.Text),
-                    ProductComponents = productJewerlies
+                    ProductJewerlies = productJewerlies
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
