@@ -78,10 +78,10 @@ namespace AbstractStoreListImplement.Implements
                 if (source.ProductJewerlies[i].ProductId == product.Id)
                 {
                     if
-                    (model.ProductComponents.ContainsKey(source.ProductJewerlies[i].JewerlyId))
+                    (model.ProductJewerlies.ContainsKey(source.ProductJewerlies[i].JewerlyId))
                     {
-                        source.ProductJewerlies[i].Count = model.ProductComponents[source.ProductJewerlies[i].JewerlyId].Item2;
-                        model.ProductComponents.Remove(source.ProductJewerlies[i].JewerlyId);
+                        source.ProductJewerlies[i].Count = model.ProductJewerlies[source.ProductJewerlies[i].JewerlyId].Item2;
+                        model.ProductJewerlies.Remove(source.ProductJewerlies[i].JewerlyId);
                     }
                     else
                     {
@@ -89,7 +89,7 @@ namespace AbstractStoreListImplement.Implements
                     }
                 }
             }
-            foreach (var pc in model.ProductComponents)
+            foreach (var pc in model.ProductJewerlies)
             {
                 source.ProductJewerlies.Add(new ProductJewerly
                 {

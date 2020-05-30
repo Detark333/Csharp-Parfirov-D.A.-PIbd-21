@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AbstractStoreListImlement.Implements
+namespace AbstractStoreListImplement.Implements
 {
     public class OrderLogic : IOrderLogic
     {
