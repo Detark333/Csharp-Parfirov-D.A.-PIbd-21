@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractJewerlyStoreView", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractJewerlyStoreFileImplement", "AbstractJewerlyStoreFileImplement\AbstractJewerlyStoreFileImplement.csproj", "{E15ACAEF-DECB-4EE9-8EBC-86EC893C4CAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractStoreDatabaseImplement", "AbstractStoreDatabaseImplement\AbstractStoreDatabaseImplement.csproj", "{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E15ACAEF-DECB-4EE9-8EBC-86EC893C4CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E15ACAEF-DECB-4EE9-8EBC-86EC893C4CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E15ACAEF-DECB-4EE9-8EBC-86EC893C4CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
