@@ -47,11 +47,11 @@ namespace AbstractStoreDatabaseImplement.Implements
                         {
                             var productComponents = context.ProductJewerlies.Where(rec
                                 => rec.ProductId == model.Id.Value).ToList();
-                            // удалили те, которых нет в модели
+
                             context.ProductJewerlies.RemoveRange(productComponents.Where(rec =>
                             !model.ProductJewerlies.ContainsKey(rec.JewerlyId)).ToList());
                             context.SaveChanges();
-                            // обновили количество у существующих записей
+
                             foreach (var updateComponent in productComponents)
                             {
                                 updateComponent.Count =
@@ -61,7 +61,7 @@ namespace AbstractStoreDatabaseImplement.Implements
                             }
                             context.SaveChanges();
                         }
-                        // добавили новые
+
                         foreach (var pc in model.ProductJewerlies)
                         {
                             context.ProductJewerlies.Add(new ProductJewerly
@@ -91,7 +91,7 @@ namespace AbstractStoreDatabaseImplement.Implements
                 {
                     try
                     {
-                        // удаяем записи по компонентам при удалении изделия
+
                         context.ProductJewerlies.RemoveRange(context.ProductJewerlies.Where(rec =>
                         rec.ProductId == model.Id));
                         Product element = context.Products.FirstOrDefault(rec => rec.Id
