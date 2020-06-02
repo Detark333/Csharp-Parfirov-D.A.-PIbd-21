@@ -21,7 +21,7 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 ProductId = model.ProductId,
                 Count = model.Count,
                 Sum = model.Sum,
-                DateCreate = DateTime.Now,
+                CreationDate = DateTime.Now,
                 Status = OrderStatus.Принят
             });
         }
@@ -45,8 +45,8 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 ProductId = order.ProductId,
                 Count = order.Count,
                 Sum = order.Sum,
-                DateCreate = order.DateCreate,
-                DateImplement = DateTime.Now,
+                CreationDate = order.DateCreate,
+                CompletionDate = DateTime.Now,
                 Status = OrderStatus.Выполняется
             });
         }
@@ -70,8 +70,8 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 ProductId = order.ProductId,
                 Count = order.Count,
                 Sum = order.Sum,
-                DateCreate = order.DateCreate,
-                DateImplement = order.DateImplement,
+                CreationDate = order.DateCreate,
+                CompletionDate = order.DateImplement,
                 Status = OrderStatus.Готов
             });
         }
@@ -95,8 +95,8 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 ProductId = order.ProductId,
                 Count = order.Count,
                 Sum = order.Sum,
-                DateCreate = order.DateCreate,
-                DateImplement = order.DateImplement,
+                CreationDate = order.DateCreate,
+                CompletionDate = order.DateImplement,
                 Status = OrderStatus.Оплачен
             });
         }

@@ -32,6 +32,10 @@
             this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jewerlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jewerliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productJewerliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonToGiveToPerform = new System.Windows.Forms.Button();
@@ -45,7 +49,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manualToolStripMenuItem});
+            this.manualToolStripMenuItem,
+            this.reportsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -74,6 +79,37 @@
             this.productToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.ProductToolStripMenuItem_Click);
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jewerliesToolStripMenuItem,
+            this.ordersToolStripMenuItem,
+            this.productJewerliesToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // jewerliesToolStripMenuItem
+            // 
+            this.jewerliesToolStripMenuItem.Name = "jewerliesToolStripMenuItem";
+            this.jewerliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jewerliesToolStripMenuItem.Text = "Jewerlies";
+            this.jewerliesToolStripMenuItem.Click += new System.EventHandler(this.JewerliesToolStripMenuItem_Click);
+            // 
+            // ordersToolStripMenuItem
+            // 
+            this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ordersToolStripMenuItem.Text = "Orders";
+            this.ordersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
+            // 
+            // productJewerliesToolStripMenuItem
+            // 
+            this.productJewerliesToolStripMenuItem.Name = "productJewerliesToolStripMenuItem";
+            this.productJewerliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productJewerliesToolStripMenuItem.Text = "Product Jewerlies";
+            this.productJewerliesToolStripMenuItem.Click += new System.EventHandler(this.ProductJewerliesToolStripMenuItem_Click);
             // 
             // dataGridView
             // 
@@ -169,5 +205,9 @@
         private System.Windows.Forms.Button buttonOrderDone;
         private System.Windows.Forms.Button buttonPayed;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jewerliesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ordersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productJewerliesToolStripMenuItem;
     }
 }

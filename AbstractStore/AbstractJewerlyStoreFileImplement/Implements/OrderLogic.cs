@@ -31,8 +31,8 @@ namespace AbstractJewerlyStoreFileImplement.Implements
                 order.ProductId = model.ProductId;
                 order.Count = model.Count;
                 order.Sum = model.Sum;
-                order.DateCreate = model.DateCreate;
-                order.DateImplement = model.DateImplement;
+                order.DateCreate = model.CreationDate;
+                order.DateImplement = model.CompletionDate;
             }
             else
             {
@@ -43,8 +43,8 @@ namespace AbstractJewerlyStoreFileImplement.Implements
                 order.Status = model.Status;
                 order.Count = model.Count;
                 order.Sum = model.Sum;
-                order.DateCreate = model.DateCreate;
-                order.DateImplement = model.DateImplement;
+                order.DateCreate = model.CreationDate;
+                order.DateImplement = model.CompletionDate;
                 source.Orders.Add(order);
             }
 

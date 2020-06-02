@@ -62,8 +62,8 @@ namespace AbstractStoreListImplement.Implements
                     cur.Count = model.Count;
                     cur.Sum = model.Sum;
                     cur.Status = model.Status;
-                    cur.DateCreate = model.DateCreate;
-                    cur.DateImplement = model.DateImplement;
+                    cur.DateCreate = model.CreationDate;
+                    cur.DateImplement = model.CompletionDate;
 
                     return cur;
                 }
@@ -80,8 +80,8 @@ namespace AbstractStoreListImplement.Implements
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
-            order.DateCreate = model.DateCreate;
-            order.DateImplement = model.DateImplement;
+            order.DateCreate = model.CreationDate;
+            order.DateImplement = model.CompletionDate;
 
             return order;
         }
