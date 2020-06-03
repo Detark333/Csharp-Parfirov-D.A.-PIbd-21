@@ -1,6 +1,5 @@
-﻿
-using AbstractJewerlyStoreBusinessLogic.Enums;
-using AbstractStoreListImplement.Models;
+﻿using AbstractJewerlyStoreBusinessLogic.Enums;
+using AbstractJewerlyStoreFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,16 +16,19 @@ namespace AbstractJewerlyStoreFileImplement
         private readonly string OrderFileName = "Order.xml";
         private readonly string ProductFileName = "Product.xml";
         private readonly string ProductJewerlyFileName = "ProductComponent.xml";
+        private readonly string ClientFileName = "Client.xml";
+        public List<Client> Clients { get; set; }
         public List<Jewerly> Jewerlies { get; set; }
         public List<Order> Orders { get; set; }
         public List<Product> Products { get; set; }
         public List<ProductJewerly> ProductJewerlies { get; set; }
         private FileDataListSingleton()
         {
-            Jewerlies = LoadComponents();
+            Jewerlies = LoadJewerlies();
             Orders = LoadOrders();
             Products = LoadProducts();
             ProductJewerlies = LoadProductComponents();
+            Clients = LoadClients();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -42,9 +44,29 @@ namespace AbstractJewerlyStoreFileImplement
             SaveOrders();
             SaveProducts();
             SaveProductJewerlies();
+            SaveClients();
         }
-
-        private List<Jewerly> LoadComponents()
+        private List<Client> LoadClients()
+        {
+            var list = new List<Client>();
+            if (File.Exists(ClientFileName))
+            {
+                XDocument xDocument = XDocument.Load(ClientFileName);
+                var xElements = xDocument.Root.Elements("Client").ToList();
+                foreach (var elem in xElements)
+                {
+                    list.Add(new Client
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        FIO = elem.Element("FIO").Value,
+                        Login = elem.Element("Login").Value,
+                        Password = elem.Element("Password").Value
+                    });
+                }
+            }
+            return list;
+        }
+        private List<Jewerly> LoadJewerlies()
         {
             var list = new List<Jewerly>();
             if (File.Exists(JewerlyFileName))
@@ -74,6 +96,7 @@ namespace AbstractJewerlyStoreFileImplement
                     list.Add(new Order
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        ClientId = Convert.ToInt32(elem.Element("ClientId").Value),
                         ProductId = Convert.ToInt32(elem.Element("ProductId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
@@ -192,6 +215,21 @@ namespace AbstractJewerlyStoreFileImplement
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ProductJewerlyFileName);
+            }
+        }
+        private void SaveClients()
+        {
+            if (Clients != null)
+            {
+                var xElement = new XElement("Clients");
+                foreach (var client in Clients)
+                {
+                    xElement.Add(new XElement("Client",
+                    new XAttribute("Id", client.Id),
+                    new XElement("FIO", client.FIO),
+                    new XElement("Login", client.Login),
+                    new XElement("Password", client.Password)));
+                }
             }
         }
     }

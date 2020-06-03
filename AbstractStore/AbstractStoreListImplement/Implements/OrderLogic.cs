@@ -19,82 +19,54 @@ namespace AbstractStoreListImplement.Implements
         }
         public void CreateOrUpdate(OrderBindingModel model)
         {
-            Order tempProduct = model.Id.HasValue ? null : new Order { Id = 1 };
+            Order tempOrder = model.Id.HasValue ? null : new Order { Id = 1 };
             foreach (var order in source.Orders)
             {
-                if (order.ProductId == model.ProductId && order.Id != model.Id)
+                if (!model.Id.HasValue && order.Id >= tempOrder.Id)
                 {
-                    throw new Exception("Уже есть изделие с таким названием");
+                    tempOrder.Id = order.Id + 1;
                 }
-                if (!model.Id.HasValue && order.Id >= tempProduct.Id)
+                else if (model.Id.HasValue && model.Id == order.Id)
                 {
-                    tempProduct.Id = order.Id + 1;
-                }
-                else if (model.Id.HasValue && order.Id == model.Id)
-                {
-                    tempProduct = order;
+                    tempOrder = order;
                 }
             }
             if (model.Id.HasValue)
             {
-                if (tempProduct == null)
+                if (tempOrder == null)
                 {
-                    throw new Exception("Элемент не найден");
+                    throw new Exception("Заказ не найден");
                 }
-                CreateModel(model, tempProduct);
+                CreateModel(model, tempOrder);
             }
             else
             {
-                source.Orders.Add(CreateModel(model, tempProduct));
+                source.Orders.Add(CreateModel(model, tempOrder));
             }
         }
         private Order CreateModel(OrderBindingModel model, Order order)
         {
-
-            int max = 1;
-
-            for (int i = 0; i < source.Orders.Count; ++i)
-            {
-                if (source.Orders[i].Id == order.Id)
-                {
-                    Order cur = source.Orders[i];
-                    cur.ProductId = model.ProductId;
-                    cur.Count = model.Count;
-                    cur.Sum = model.Sum;
-                    cur.Status = model.Status;
-                    cur.DateCreate = model.CreationDate;
-                    cur.DateImplement = model.CompletionDate;
-
-                    return cur;
-                }
-
-
-                if (source.Orders[i].Id >= max)
-                {
-                    max = source.Orders[i].Id;
-                }
-            }
-
-            order.Id = max;
             order.ProductId = model.ProductId;
+            order.ClientId = model.ClientId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
             order.DateCreate = model.CreationDate;
             order.DateImplement = model.CompletionDate;
-
             return order;
         }
 
         public void Delete(OrderBindingModel model)
         {
-            for (int i = 0; i < source.Orders.Count; ++i)
+            for (int i = 0; i < source.Orders.Count; i++)
             {
-                if (source.Orders[i].Id == model.Id)
+                if (source.Orders[i].Id == model.Id.Value)
                 {
-                    source.Orders.RemoveAt(i--);
+                    source.Orders.RemoveAt(i);
+                    return;
                 }
             }
+            throw new Exception("Заказ не найден");
         }
 
         public List<OrderViewModel> Read(OrderBindingModel model)
@@ -104,7 +76,10 @@ namespace AbstractStoreListImplement.Implements
             {
                 if (model != null)
                 {
-                    if (order.Id == model.Id)
+                    if (order.Id == model.Id.Value
+                     || order.DateCreate >= model.DateFrom.Value
+                     && order.DateCreate <= model.DateTo.Value
+                     || model.ClientId.HasValue && order.ClientId == model.ClientId)
                     {
                         result.Add(CreateViewModel(order));
                         break;
@@ -118,16 +93,34 @@ namespace AbstractStoreListImplement.Implements
 
         private OrderViewModel CreateViewModel(Order order)
         {
+            string productName = "";
+            foreach (var product in source.Products)
+            {
+                if (product.Id == order.ProductId)
+                {
+                    productName = product.ProductName;
+                }
+            }
+            string clientLogin = "";
+            foreach (var client in source.Clients)
+            {
+                if (client.Id == order.ClientId)
+                {
+                    clientLogin = client.Login;
+                }
+            }
             return new OrderViewModel
             {
                 Id = order.Id,
+                ProductId = order.ProductId,
+                ClientId = order.ClientId,
+                ClientLogin = clientLogin,
+                ProductName = productName,
                 Count = order.Count,
                 Sum = order.Sum,
-                DateCreate = order.DateCreate,
-                DateImplement = order.DateImplement,
                 Status = order.Status,
-                ProductId = order.ProductId,
-                ProductName = source.Jewerlies.FirstOrDefault(a => a.Id == order.ProductId).JewerlyName
+                DateCreate = order.DateCreate,
+                DateImplement = order.DateImplement
             };
         }
     }
