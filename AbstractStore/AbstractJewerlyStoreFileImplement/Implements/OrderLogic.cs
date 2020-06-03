@@ -1,4 +1,5 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
+using AbstractJewerlyStoreBusinessLogic.Enums;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
 using AbstractJewerlyStoreFileImplement.Models;
@@ -61,7 +62,11 @@ namespace AbstractJewerlyStoreFileImplement.Implements
             .Where(rec => model == null || rec.Id == model.Id
             || rec.DateCreate >= model.DateFrom.Value
            && rec.DateImplement <= model.DateTo.Value
-           || model.ClientId.HasValue && model.ClientId == rec.ClientId)
+           || model.ClientId.HasValue && model.ClientId == rec.ClientId
+           || model.FreeOrders.HasValue && model.FreeOrders.Value
+           && !rec.ImplementerId.HasValue || model.ImplementerId.HasValue
+           && rec.ImplementerId == model.ImplementerId
+           && rec.Status == OrderStatus.Выполняется)
             .Select(rec => new OrderViewModel
             {
                 ClientId = rec.ClientId,

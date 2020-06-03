@@ -13,6 +13,7 @@ namespace AbstractStoreDatabaseImplement.Models
         public int Id { get; set; }
         public int ProductId { get; set; }
         public int ClientId { get; set; }
+        public int? ImplementerId { get; set; }
         [Required]
         public int Count { get; set; }
         [Required]
@@ -24,5 +25,6 @@ namespace AbstractStoreDatabaseImplement.Models
         public DateTime? DateImplement { get; set; }
         public virtual Product Product { get; set; }
         public virtual Client Client { get; set; }
+        public virtual Implementer Implementer { get; set; }
     } 
 }

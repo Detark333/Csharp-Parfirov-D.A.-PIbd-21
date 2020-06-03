@@ -10,6 +10,7 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
     public class MainLogic
     {
         private readonly IOrderLogic orderLogic;
+        private readonly object locker = new object();
         public MainLogic(IOrderLogic orderLogic)
         {
             this.orderLogic = orderLogic;
@@ -28,29 +29,33 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
         }
         public void TakeOrderInWork(ChangeStatusBindingModel model)
         {
-            var order = orderLogic.Read(new OrderBindingModel
+            lock (locker)
             {
-                Id = model.OrderId
-            })?[0];
-            if (order == null)
-            {
-                throw new Exception("Не найден заказ");
+                var order = orderLogic.Read(new OrderBindingModel
+                {
+                    Id = model.OrderId
+                })?[0];
+                if (order == null)
+                {
+                    throw new Exception("Не найден заказ");
+                }
+                if (order.Status != OrderStatus.Принят)
+                {
+                    throw new Exception("Заказ не в статусе \"Принят\"");
+                }
+                orderLogic.CreateOrUpdate(new OrderBindingModel
+                {
+                    Id = order.Id,
+                    ProductId = order.ProductId,
+                    ImplementerId = model.ImplementerId,
+                    ClientId = order.ClientId,
+                    Count = order.Count,
+                    Sum = order.Sum,
+                    CreationDate = order.DateCreate,
+                    CompletionDate = DateTime.Now,
+                    Status = OrderStatus.Выполняется
+                });
             }
-            if (order.Status != OrderStatus.Принят)
-            {
-                throw new Exception("Заказ не в статусе \"Принят\"");
-            }
-            orderLogic.CreateOrUpdate(new OrderBindingModel
-            {
-                Id = order.Id,
-                ProductId = order.ProductId,
-                ClientId = order.ClientId,
-                Count = order.Count,
-                Sum = order.Sum,
-                CreationDate = order.DateCreate,
-                CompletionDate = DateTime.Now,
-                Status = OrderStatus.Выполняется
-            });
         }
         public void FinishOrder(ChangeStatusBindingModel model)
         {
@@ -71,6 +76,7 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 Id = order.Id,
                 ProductId = order.ProductId,
                 ClientId = order.ClientId,
+                ImplementerId = model.ImplementerId,
                 Count = order.Count,
                 Sum = order.Sum,
                 CreationDate = order.DateCreate,
@@ -97,6 +103,7 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 Id = order.Id,
                 ProductId = order.ProductId,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 Count = order.Count,
                 Sum = order.Sum,
                 CreationDate = order.DateCreate,

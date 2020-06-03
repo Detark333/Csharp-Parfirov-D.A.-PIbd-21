@@ -18,9 +18,13 @@ namespace AbstractJewerlyStoreBusinessLogic.ViewModels
         [DataMember]
         [DisplayName("Клиент")]
         public string ClientLogin { get; set; }
+        public int? ImplementerId { get; set; }
         [DataMember]
         [DisplayName("Изделие")]
         public string ProductName { get; set; }
+        [DataMember]
+        [DisplayName("Исполнитель")]
+        public string ImplementerFIO { get; set; }
         [DataMember]
         [DisplayName("Количество")]
         public int Count { get; set; }

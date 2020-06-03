@@ -18,12 +18,14 @@ namespace AbstractJewelryStoreView
         private readonly MainLogic logic;
         private readonly IOrderLogic orderLogic;
         private readonly ReportLogic report;
-        public FormMain(MainLogic logic, IOrderLogic orderLogic, ReportLogic report)
+        private readonly WorkModeling workModeling;
+        public FormMain(WorkModeling workModeling, MainLogic logic, IOrderLogic orderLogic, ReportLogic report)
         {
             InitializeComponent();
             this.logic = logic;
             this.orderLogic = orderLogic;
             this.report = report;
+            this.workModeling = workModeling;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -37,9 +39,23 @@ namespace AbstractJewelryStoreView
                 List<OrderViewModel> list = orderLogic.Read(null);
                 if (list != null)
                 {
-                    dataGridView.DataSource = list;
-                    dataGridView.Columns[0].Visible = false;
-                    dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView.Rows.Clear();
+                    foreach (var order in list)
+                    {
+                        dataGridView.Rows.Add(new object[]
+                        {
+                            order.Id,
+                            order.ClientLogin,
+                            order.ImplementerId,
+                            order.ImplementerFIO,
+                            order.ProductName,
+                            order.Count,
+                            order.Sum,
+                            order.Status,
+                            order.DateCreate,
+                            order.DateImplement
+                        });
+                    }
                 }
             }
             catch (Exception ex)
@@ -110,9 +126,14 @@ namespace AbstractJewelryStoreView
             if (dataGridView.SelectedRows.Count == 1)
             {
                 int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+                int implementerId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[2].Value);
                 try
                 {
-                    logic.PayOrder(new ChangeStatusBindingModel { OrderId = id });
+                    logic.PayOrder(new ChangeStatusBindingModel
+                    {
+                        OrderId = id,
+                        ImplementerId = implementerId
+                    });
                     LoadData();
                 }
                 catch (Exception ex)
