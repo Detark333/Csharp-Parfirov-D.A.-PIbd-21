@@ -94,7 +94,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.dataGridView);
             this.Name = "FormJProduct";
-            this.Text = "FormJProduct";
+            this.Text = "Jewerly and Product";
             this.Load += new System.EventHandler(this.FormJProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);

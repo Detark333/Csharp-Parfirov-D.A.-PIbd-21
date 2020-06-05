@@ -22,10 +22,6 @@ namespace AbstractStoreListImplement.Implements
             Order tempProduct = model.Id.HasValue ? null : new Order { Id = 1 };
             foreach (var order in source.Orders)
             {
-                if (order.ProductId == model.ProductId && order.Id != model.Id)
-                {
-                    throw new Exception("Уже есть изделие с таким названием");
-                }
                 if (!model.Id.HasValue && order.Id >= tempProduct.Id)
                 {
                     tempProduct.Id = order.Id + 1;
