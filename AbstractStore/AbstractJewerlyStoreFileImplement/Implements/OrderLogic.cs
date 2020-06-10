@@ -33,6 +33,7 @@ namespace AbstractJewerlyStoreFileImplement.Implements
                 int maxId = source.Orders.Count > 0 ? source.Orders.Max(rec =>
                rec.Id) : 0;
                 order = new Order { Id = maxId + 1 };
+                source.Orders.Add(order);
             }
             order.ProductId = model.ProductId;
             order.ClientId = model.ClientId.Value;
@@ -41,7 +42,6 @@ namespace AbstractJewerlyStoreFileImplement.Implements
             order.Sum = model.Sum;
             order.DateCreate = model.CreationDate;
             order.DateImplement = model.CompletionDate;
-            source.Orders.Add(order);
         }
         public void Delete(OrderBindingModel model)
         {

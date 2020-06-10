@@ -43,6 +43,27 @@ namespace AbstractStoreDatabaseImplement.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.Implementer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImplementerFIO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PauseTime")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkingTime")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Implementers");
+                });
+
             modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.Jewerly", b =>
                 {
                     b.Property<int>("Id")
@@ -57,6 +78,33 @@ namespace AbstractStoreDatabaseImplement.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Jewerlies");
+                });
+
+            modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.MessageInfo", b =>
+                {
+                    b.Property<string>("MessageId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Body")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DeliveryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SenderName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.Order", b =>
@@ -78,6 +126,9 @@ namespace AbstractStoreDatabaseImplement.Migrations
                     b.Property<DateTime?>("DateImplement")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("ImplementerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -90,6 +141,8 @@ namespace AbstractStoreDatabaseImplement.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
+
+                    b.HasIndex("ImplementerId");
 
                     b.HasIndex("ProductId");
 
@@ -138,6 +191,13 @@ namespace AbstractStoreDatabaseImplement.Migrations
                     b.ToTable("ProductJewerlies");
                 });
 
+            modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.MessageInfo", b =>
+                {
+                    b.HasOne("AbstractStoreDatabaseImplement.Models.Client", "Client")
+                        .WithMany("Messages")
+                        .HasForeignKey("ClientId");
+                });
+
             modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.Order", b =>
                 {
                     b.HasOne("AbstractStoreDatabaseImplement.Models.Client", "Client")
@@ -145,6 +205,10 @@ namespace AbstractStoreDatabaseImplement.Migrations
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("AbstractStoreDatabaseImplement.Models.Implementer", "Implementer")
+                        .WithMany("Orders")
+                        .HasForeignKey("ImplementerId");
 
                     b.HasOne("AbstractStoreDatabaseImplement.Models.Product", "Product")
                         .WithMany("Orders")

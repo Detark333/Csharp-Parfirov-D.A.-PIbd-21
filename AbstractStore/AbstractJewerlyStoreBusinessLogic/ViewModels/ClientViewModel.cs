@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AbstractJewerlyStoreBusinessLogic.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
@@ -6,18 +7,15 @@ using System.Text;
 
 namespace AbstractJewerlyStoreBusinessLogic.ViewModels
 {
-    public class ClientViewModel
+    [DataContract]
+    public class ClientViewModel : BaseViewModel
     {
+        [Column(title: "FIO Client", gridViewAutoSize: GridViewAutoSize.Fill)]
+        public string FIO { set; get; }
         [DataMember]
-        public int Id { get; set; }
+        public string Login { set; get; }
         [DataMember]
-        [DisplayName("Ф.И.О.")]
-        public string FIO { get; set; }
-        [DataMember]
-        [DisplayName("Логин")]
-        public string Login { get; set; }
-        [DataMember]
-        [DisplayName("Пароль")]
-        public string Password { get; set; }
+        public string Password { set; get; }
+        public override List<string> Properties() => new List<string> { "Id", "ClientFIO" };
     }
 }

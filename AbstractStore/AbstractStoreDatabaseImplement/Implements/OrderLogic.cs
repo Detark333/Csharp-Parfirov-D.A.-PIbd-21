@@ -34,8 +34,8 @@ namespace AbstractStoreDatabaseImplement.Implements
                 }
                 element.ClientId = model.ClientId.Value;
                 element.Count = model.Count;
-                element.Sum = model.Sum;
                 element.ImplementerId = model.ImplementerId;
+                element.Sum = model.Sum;
                 element.DateCreate = model.CreationDate;
                 element.DateImplement = model.CompletionDate;
                 element.Status = model.Status;
@@ -80,12 +80,12 @@ namespace AbstractStoreDatabaseImplement.Implements
                 {
                     ClientId = rec.ClientId,
                     ClientLogin = rec.Client.Login,
-                    ImplementerId = rec.ImplementerId,
-                    ImplementerFIO = rec.Implementer.ImplementerFIO,
                     Id = rec.Id,
                     Count = rec.Count,
                     Sum = rec.Sum,
                     DateCreate = rec.DateCreate,
+                    ImplementerId = rec.ImplementerId,
+                    ImplementerFIO = rec.Implementer.ImplementerFIO,
                     DateImplement = rec.DateImplement,
                     Status = rec.Status,
                     ProductId = rec.ProductId,

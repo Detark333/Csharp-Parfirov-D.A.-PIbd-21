@@ -19,13 +19,15 @@ namespace AbstractJewelryStoreView
         private readonly IOrderLogic orderLogic;
         private readonly ReportLogic report;
         private readonly WorkModeling workModeling;
-        public FormMain(WorkModeling workModeling, MainLogic logic, IOrderLogic orderLogic, ReportLogic report)
+        private readonly BackUpAbstractLogic backUpAbstractLogic;
+        public FormMain(WorkModeling workModeling,MainLogic logic, IOrderLogic orderLogic, ReportLogic report, BackUpAbstractLogic backUpAbstractLogic)
         {
             InitializeComponent();
             this.logic = logic;
             this.orderLogic = orderLogic;
             this.report = report;
             this.workModeling = workModeling;
+            this.backUpAbstractLogic = backUpAbstractLogic;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -36,27 +38,8 @@ namespace AbstractJewelryStoreView
         {
             try
             {
-                List<OrderViewModel> list = orderLogic.Read(null);
-                if (list != null)
-                {
-                    dataGridView.Rows.Clear();
-                    foreach (var order in list)
-                    {
-                        dataGridView.Rows.Add(new object[]
-                        {
-                            order.Id,
-                            order.ClientLogin,
-                            order.ImplementerId,
-                            order.ImplementerFIO,
-                            order.ProductName,
-                            order.Count,
-                            order.Sum,
-                            order.Status,
-                            order.DateCreate,
-                            order.DateImplement
-                        });
-                    }
-                }
+                Program.ConfigGrid(orderLogic.Read(null), dataGridView);
+                dataGridView.Update();
             }
             catch (Exception ex)
             {
@@ -64,12 +47,18 @@ namespace AbstractJewelryStoreView
             }
         }
 
+
         private void JewerlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormCountJewerly>();
             form.ShowDialog();
         }
-
+        private void MessagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormMessage>();
+            form.ShowDialog();
+        }
+        
         private void ProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormJProduct>();
@@ -126,14 +115,9 @@ namespace AbstractJewelryStoreView
             if (dataGridView.SelectedRows.Count == 1)
             {
                 int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                int implementerId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[2].Value);
                 try
                 {
-                    logic.PayOrder(new ChangeStatusBindingModel
-                    {
-                        OrderId = id,
-                        ImplementerId = implementerId
-                    });
+                    logic.PayOrder(new ChangeStatusBindingModel { OrderId = id });
                     LoadData();
                 }
                 catch (Exception ex)
@@ -176,6 +160,46 @@ namespace AbstractJewelryStoreView
         {
             var form = Container.Resolve<FormPDF>();
             form.ShowDialog();
+        }
+
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormClients>();
+            form.ShowDialog();
+        }
+
+        private void implementorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormImplementer>();
+            form.ShowDialog();
+        }
+
+        private void gettingStartedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            workModeling.DoWork();
+            LoadData();
+        }
+
+        private void createBackUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (backUpAbstractLogic != null)
+                {
+                    var fbd = new FolderBrowserDialog();
+                    if (fbd.ShowDialog() == DialogResult.OK)
+                    {
+                        backUpAbstractLogic.CreateArchive(fbd.SelectedPath);
+                        MessageBox.Show("Бекап создан", "Сообщение",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }
         }
     }
 }
