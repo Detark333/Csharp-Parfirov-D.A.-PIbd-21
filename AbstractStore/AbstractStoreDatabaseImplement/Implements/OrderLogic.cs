@@ -76,7 +76,7 @@ namespace AbstractStoreDatabaseImplement.Implements
             using (var context = new AbstractStoreDatabase())
             {
                 return context.Orders
-                    .Include(rec => rec.Product)
+                .Include(rec => rec.Product)
                 .Where(rec => model == null || rec.Id == model.Id
                 || model.DateFrom.HasValue && model.DateTo.HasValue
                 && rec.DateCreate >= model.DateFrom.Value
