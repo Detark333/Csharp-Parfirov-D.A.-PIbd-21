@@ -1,8 +1,10 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
+using AbstractStoreDatabaseImplement.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AbstractStoreDatabaseImplement.Implements
@@ -13,8 +15,21 @@ namespace AbstractStoreDatabaseImplement.Implements
         {
             using (var context = new AbstractStoreDatabase())
             {
-                Implementer element = context.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
-                if (element == null)
+                Implementer element = context.Implementers.FirstOrDefault(rec => rec.ImplementerFIO
+                == model.FIO && rec.Id != model.Id);
+                if (element != null)
+                {
+                    throw new Exception("Исполнитель с такими данными уже существует");
+                }
+                if (model.Id.HasValue)
+                {
+                    element = context.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (element == null)
+                    {
+                        throw new Exception("Исполнитель не найден");
+                    }
+                }
+                else
                 {
                     element = new Implementer();
                     context.Implementers.Add(element);
