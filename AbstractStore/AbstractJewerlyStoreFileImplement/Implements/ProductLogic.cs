@@ -1,7 +1,7 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
-using AbstractStoreListImplement.Models;
+using AbstractJewerlyFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

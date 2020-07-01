@@ -1,6 +1,6 @@
 ﻿
 using AbstractJewerlyStoreBusinessLogic.Enums;
-using AbstractStoreListImplement.Models;
+using AbstractJewerlyFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -77,13 +77,10 @@ namespace AbstractJewerlyStoreFileImplement
                         ProductId = Convert.ToInt32(elem.Element("ProductId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
-                        Status = (OrderStatus)Enum.Parse(typeof(OrderStatus),
-                   elem.Element("Status").Value),
-                        DateCreate =
-                   Convert.ToDateTime(elem.Element("DateCreate").Value),
-                        DateImplement =
-                   string.IsNullOrEmpty(elem.Element("DateImplement").Value) ? (DateTime?)null :
-                   Convert.ToDateTime(elem.Element("DateImplement").Value),
+                        Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), elem.Element("Status").Value),
+                        DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value),
+                        DateImplement = string.IsNullOrEmpty(elem.Element("DateImplement").Value) ? (DateTime?)null :
+                        Convert.ToDateTime(elem.Element("DateImplement").Value),
                     });
                 }
             }

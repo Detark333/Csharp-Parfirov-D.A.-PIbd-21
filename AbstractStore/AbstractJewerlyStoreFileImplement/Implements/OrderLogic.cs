@@ -1,7 +1,7 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
-using AbstractStoreListImplement.Models;
+using AbstractJewerlyFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,28 +26,19 @@ namespace AbstractJewerlyStoreFileImplement.Implements
                 {
                     throw new Exception("Элемент не найден");
                 }
-                order.ProductId = model.ProductId;
-                order.Status = model.Status;
-                order.ProductId = model.ProductId;
-                order.Count = model.Count;
-                order.Sum = model.Sum;
-                order.DateCreate = model.CreationDate;
-                order.DateImplement = model.CompletionDate;
             }
             else
             {
-                int maxId = source.Orders.Count > 0 ? source.Orders.Max(rec =>
-               rec.Id) : 0;
+                int maxId = source.Orders.Count > 0 ? source.Orders.Max(rec => rec.Id) : 0;
                 order = new Order { Id = maxId + 1 };
-                order.ProductId = model.ProductId;
-                order.Status = model.Status;
-                order.Count = model.Count;
-                order.Sum = model.Sum;
-                order.DateCreate = model.CreationDate;
-                order.DateImplement = model.CompletionDate;
-                source.Orders.Add(order);
             }
-
+            order.ProductId = model.ProductId;
+            order.Status = model.Status;
+            order.Count = model.Count;
+            order.Sum = model.Sum;
+            order.DateCreate = model.DateCreate;
+            order.DateImplement = model.DateImplement;
+            source.Orders.Add(order);
         }
         public void Delete(OrderBindingModel model)
         {
@@ -72,7 +63,7 @@ namespace AbstractJewerlyStoreFileImplement.Implements
                 Count = rec.Count,
                 DateCreate = rec.DateCreate,
                 DateImplement = rec.DateImplement,
-                ProductName = source.Products.FirstOrDefault((r) => r.Id == rec.ProductId).ProductName,
+                ProductName = source.Products.FirstOrDefault((r) => r.Id == rec.ProductId)?.ProductName,
                 ProductId = rec.ProductId,
                 Status = rec.Status,
                 Sum = rec.Sum
