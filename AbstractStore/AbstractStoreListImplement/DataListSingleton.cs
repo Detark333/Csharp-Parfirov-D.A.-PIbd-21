@@ -1,9 +1,9 @@
-﻿using AbstractStoreListImplement.Models;
+﻿using AbstractJewerlyFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbstractStoreListImplement
+namespace AbstractJewerlyFileImplement
 {
     public class DataListSingleton
     {
