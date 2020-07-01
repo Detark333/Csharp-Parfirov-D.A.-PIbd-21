@@ -11,7 +11,10 @@ namespace AbstractStoreListImplement.Implements
     public class ImplementerLogic : IImplementerLogic
     {
         private readonly DataListSingleton source;
-
+        public ImplementerLogic()
+        {
+            source = DataListSingleton.GetInstance();
+        }
         public void CreateOrUpdate(ImplementerBindingModel model)
         {
             Implementer tempImplementer = model.Id.HasValue ? null : new Implementer { Id = 1 };
@@ -43,7 +46,6 @@ namespace AbstractStoreListImplement.Implements
                 source.Implementers.Add(CreateModel(model, tempImplementer));
             }
         }
-
         public void Delete(ImplementerBindingModel model)
         {
             for (int i = 0; i < source.Implementers.Count; i++)

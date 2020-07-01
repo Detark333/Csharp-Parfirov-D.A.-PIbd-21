@@ -4,14 +4,16 @@ using AbstractStoreDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AbstractStoreDatabaseImplement.Migrations
 {
     [DbContext(typeof(AbstractStoreDatabase))]
-    partial class AbstractStoreDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20200604094248_DBUpdateSecond")]
+    partial class DBUpdateSecond
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,33 +80,6 @@ namespace AbstractStoreDatabaseImplement.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Jewerlies");
-                });
-
-            modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.MessageInfo", b =>
-                {
-                    b.Property<string>("MessageId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DeliveryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SenderName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("MessageId");
-
-                    b.HasIndex("ClientId");
-
-                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.Order", b =>
@@ -189,13 +164,6 @@ namespace AbstractStoreDatabaseImplement.Migrations
                     b.HasIndex("JewerlyId");
 
                     b.ToTable("ProductJewerlies");
-                });
-
-            modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.MessageInfo", b =>
-                {
-                    b.HasOne("AbstractStoreDatabaseImplement.Models.Client", "Client")
-                        .WithMany("Messages")
-                        .HasForeignKey("ClientId");
                 });
 
             modelBuilder.Entity("AbstractStoreDatabaseImplement.Models.Order", b =>

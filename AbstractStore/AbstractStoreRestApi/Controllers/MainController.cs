@@ -11,19 +11,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AbstractStoreRestApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class MainController : ControllerBase
     {
         private readonly IOrderLogic _order;
         private readonly IProductLogic _product;
+        private readonly IMessageInfoLogic _message;
         private readonly MainLogic _main;
 
-        public MainController(IOrderLogic order, IProductLogic product, MainLogic main)
+        public MainController(IMessageInfoLogic message, IOrderLogic order, IProductLogic product, MainLogic main)
         {
             _order = order;
             _product = product;
             _main = main;
+            _message = message;
         }
 
         [HttpGet]
@@ -43,7 +45,9 @@ namespace AbstractStoreRestApi.Controllers
         [HttpPost]
         public void CreateOrder(CreateOrderBindingModel model) =>
         _main.CreateOrder(model);
-
+        [HttpGet]
+        public List<MessageInfoViewModel> GetMessages(int clientId) =>
+        _message.Read(new MessageInfoBindingModel { ClientId = clientId });
         private Product Convert(ProductViewModel model)
         {
             if (model == null) return null;

@@ -1,5 +1,6 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
 using AbstractJewerlyStoreBusinessLogic.Enums;
+using AbstractJewerlyStoreBusinessLogic.HelperModels;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,11 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
     {
         private readonly IOrderLogic orderLogic;
         private readonly object locker = new object();
-        public MainLogic(IOrderLogic orderLogic)
+        private readonly IClientLogic clientLogic;
+        public MainLogic(IClientLogic clientLogic, IOrderLogic orderLogic)
         {
             this.orderLogic = orderLogic;
+            this.clientLogic = clientLogic;
         }
         public void CreateOrder(CreateOrderBindingModel model)
         {
@@ -25,6 +28,15 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 Sum = model.Sum,
                 CreationDate = DateTime.Now,
                 Status = OrderStatus.Принят
+            });
+            MailLogic.MailSendAsync(new MailSendInfo
+            {
+                MailAddress = clientLogic.Read(new ClientBindingModel
+                {
+                    Id = model.ClientId
+                })?[0]?.Login,
+                Subject = $"Новый заказ",
+                Text = $"Заказ принят."
             });
         }
         public void TakeOrderInWork(ChangeStatusBindingModel model)
@@ -47,13 +59,22 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 {
                     Id = order.Id,
                     ProductId = order.ProductId,
-                    ImplementerId = model.ImplementerId,
                     ClientId = order.ClientId,
+                    ImplementerId = model.ImplementerId,
                     Count = order.Count,
                     Sum = order.Sum,
                     CreationDate = order.DateCreate,
                     CompletionDate = DateTime.Now,
                     Status = OrderStatus.Выполняется
+                });
+                MailLogic.MailSendAsync(new MailSendInfo
+                {
+                    MailAddress = clientLogic.Read(new ClientBindingModel
+                    {
+                        Id = order.ClientId
+                    })?[0]?.Login,
+                    Subject = $"Заказ №{order.Id}",
+                    Text = $"Заказ №{order.Id} передан в работу."
                 });
             }
         }
@@ -83,6 +104,15 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 CompletionDate = order.DateImplement,
                 Status = OrderStatus.Готов
             });
+            MailLogic.MailSendAsync(new MailSendInfo
+            {
+                MailAddress = clientLogic.Read(new ClientBindingModel
+                {
+                    Id = order.ClientId
+                })?[0]?.Login,
+                Subject = $"Заказ №{order.Id}",
+                Text = $"Заказ №{order.Id} готов."
+            });
         }
         public void PayOrder(ChangeStatusBindingModel model)
         {
@@ -109,6 +139,15 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
                 CreationDate = order.DateCreate,
                 CompletionDate = order.DateImplement,
                 Status = OrderStatus.Оплачен
+            });
+            MailLogic.MailSendAsync(new MailSendInfo
+            {
+                MailAddress = clientLogic.Read(new ClientBindingModel
+                {
+                    Id = order.ClientId
+                })?[0]?.Login,
+                Subject = $"Заказ №{order.Id}",
+                Text = $"Заказ №{order.Id} оплачен."
             });
         }
     }
