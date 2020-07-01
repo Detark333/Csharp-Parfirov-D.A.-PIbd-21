@@ -28,8 +28,7 @@ namespace AbstractStoreDatabaseImplement.Implements
                         }
                         if (model.Id.HasValue)
                         {
-                            element = context.Products.FirstOrDefault(rec => rec.Id ==
-                           model.Id);
+                            element = context.Products.FirstOrDefault(rec => rec.Id == model.Id);
                             if (element == null)
                             {
                                 throw new Exception("Элемент не найден");
@@ -45,9 +44,7 @@ namespace AbstractStoreDatabaseImplement.Implements
                         context.SaveChanges();
                         if (model.Id.HasValue)
                         {
-                            var productComponents = context.ProductJewerlies.Where(rec
-                                => rec.ProductId == model.Id.Value).ToList();
-
+                            var productComponents = context.ProductJewerlies.Where(rec => rec.ProductId == model.Id.Value).ToList();
                             context.ProductJewerlies.RemoveRange(productComponents.Where(rec =>
                             !model.ProductJewerlies.ContainsKey(rec.JewerlyId)).ToList());
                             context.SaveChanges();
@@ -129,9 +126,9 @@ namespace AbstractStoreDatabaseImplement.Implements
                    ProductName = rec.ProductName,
                    Price = rec.Price,
                    ProductJewerlies = context.ProductJewerlies
-                .Include(recPC => recPC.Jewerly)
-                .Where(recPC => recPC.ProductId == rec.Id)
-                .ToDictionary(recPC => recPC.ProductId, recPC =>
+                   .Include(recPC => recPC.Jewerly)
+                   .Where(recPC => recPC.ProductId == rec.Id)
+                   .ToDictionary(recPC => recPC.ProductId, recPC =>
                 (recPC.Product?.ProductName, recPC.Count))
                }).ToList();
             }
