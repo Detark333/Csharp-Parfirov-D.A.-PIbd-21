@@ -25,30 +25,19 @@ namespace AbstractStoreDatabaseImplement.Implements
                     {
                         throw new Exception("Элемент не найден");
                     }
-                    else
-                    {
-                        element.Count = model.Count;
-                        element.Sum = model.Sum;
-                        element.DateCreate = model.CreationDate;
-                        element.DateImplement = model.CompletionDate;
-                        element.Status = model.Status;
-                        element.ProductId = model.ProductId;
-                    }
+
                 }
                 else
                 {
-                    element = new Order
-                    {
-                        Count = model.Count,
-                        Sum = model.Sum,
-                        DateCreate = model.CreationDate,
-                        DateImplement = model.CompletionDate,
-                        Status = model.Status,
-                        ProductId = model.ProductId
-                    };
+                    element = new Order {};
                     context.Orders.Add(element);
                 }
-
+                element.Count = model.Count;
+                element.Sum = model.Sum;
+                element.DateCreate = model.DateCreate;
+                element.DateImplement = model.DateImplement;
+                element.Status = model.Status;
+                element.ProductId = model.ProductId;
                 context.SaveChanges();
             }
         }
@@ -61,13 +50,12 @@ namespace AbstractStoreDatabaseImplement.Implements
                 if (element != null)
                 {
                     context.Orders.Remove(element);
+                    context.SaveChanges();
                 }
                 else
                 {
                     throw new Exception("Элемент не найден");
                 }
-
-                context.SaveChanges();
             }
         }
 

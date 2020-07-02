@@ -16,16 +16,14 @@ namespace AbstractStoreDatabaseImplement.Implements
             {
                 using (var context = new AbstractStoreDatabase())
                 {
-                    Jewerly element = context.Jewerlies.FirstOrDefault(rec =>
-                   rec.JewerlyName == model.JewerlyName && rec.Id != model.Id);
+                    Jewerly element = context.Jewerlies.FirstOrDefault(rec => rec.JewerlyName == model.JewerlyName && rec.Id != model.Id);
                     if (element != null)
                     {
                         throw new Exception("Уже есть компонент с таким названием");
                     }
                     if (model.Id.HasValue)
                     {
-                        element = context.Jewerlies.FirstOrDefault(rec => rec.Id ==
-                       model.Id);
+                        element = context.Jewerlies.FirstOrDefault(rec => rec.Id == model.Id);
                         if (element == null)
                         {
                             throw new Exception("Элемент не найден");
@@ -44,8 +42,7 @@ namespace AbstractStoreDatabaseImplement.Implements
             {
                 using (var context = new AbstractStoreDatabase())
                 {
-                    Jewerly element = context.Jewerlies.FirstOrDefault(rec => rec.Id ==
-                   model.Id);
+                    Jewerly element = context.Jewerlies.FirstOrDefault(rec => rec.Id == model.Id);
                     if (element != null)
                     {
                         context.Jewerlies.Remove(element);
