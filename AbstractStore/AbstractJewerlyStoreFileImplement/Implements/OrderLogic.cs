@@ -30,8 +30,7 @@ namespace AbstractJewerlyStoreFileImplement.Implements
             }
             else
             {
-                int maxId = source.Orders.Count > 0 ? source.Orders.Max(rec =>
-               rec.Id) : 0;
+                int maxId = source.Orders.Count > 0 ? source.Orders.Max(rec => rec.Id) : 0;
                 order = new Order { Id = maxId + 1 };
             }
             order.ProductId = model.ProductId;
@@ -76,7 +75,7 @@ namespace AbstractJewerlyStoreFileImplement.Implements
                 Count = rec.Count,
                 DateCreate = rec.DateCreate,
                 DateImplement = rec.DateImplement,
-                ProductName = source.Products.FirstOrDefault((r) => r.Id == rec.ProductId).ProductName,
+                ProductName = source.Products.FirstOrDefault((r) => r.Id == rec.ProductId)?.ProductName,
                 ProductId = rec.ProductId,
                 Status = rec.Status,
                 Sum = rec.Sum
