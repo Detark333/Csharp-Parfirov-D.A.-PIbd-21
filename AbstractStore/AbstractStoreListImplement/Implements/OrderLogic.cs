@@ -1,14 +1,14 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
-using AbstractStoreListImplement;
-using AbstractStoreListImplement.Models;
+using AbstractJewerlyFileImplement;
+using AbstractJewerlyFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AbstractStoreListImplement.Implements
+namespace AbstractJewerlyFileImplement.Implements
 {
     public class OrderLogic : IOrderLogic
     {
