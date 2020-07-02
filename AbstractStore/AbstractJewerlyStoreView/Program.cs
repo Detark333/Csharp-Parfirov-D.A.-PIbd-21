@@ -14,6 +14,7 @@ using AbstractJewerlyStoreBusinessLogic.ViewModels;
 using AbstractJewerlyStoreBusinessLogic.Attributes;
 using ColumnAttribute = AbstractJewerlyStoreBusinessLogic.Attributes.ColumnAttribute;
 
+
 namespace AbstractJewerlyStoreView
 {
     static class Program

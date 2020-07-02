@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AbstractJewerlyStoreBusinessLogic\AbstractJewerlyStoreBusinessLogic.csproj" />
-    <ProjectReference Include="..\AbstractStoreListImplement\AbstractStoreListImplement.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using System.Xml.Serialization;
+using System.Xml.Serialization;
+
 
 namespace AbstractJewerlyStoreFileImplement
 {
@@ -197,7 +198,8 @@ namespace AbstractJewerlyStoreFileImplement
                 }
             }
             return list;
-        }
+        }
+
         private List<Product> LoadProducts()
         {
             var list = new List<Product>();
@@ -236,7 +238,8 @@ namespace AbstractJewerlyStoreFileImplement
                 }
             }
             return list;
-        }        private void SaveJewerlies()
+        }
+        private void SaveJewerlies()
         {
             if (Jewerlies != null)
             {
@@ -286,7 +289,8 @@ namespace AbstractJewerlyStoreFileImplement
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ProductFileName);
             }
-        }        private void SaveProductJewerlies()
+        }
+        private void SaveProductJewerlies()
         {
             if (ProductJewerlies != null)
             {

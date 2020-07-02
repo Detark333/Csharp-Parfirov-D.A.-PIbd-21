@@ -56,6 +56,8 @@
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.createBackUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.messagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manualToolStripMenuItem,
             this.reportsToolStripMenuItem,
+
             this.gettingStartedToolStripMenuItem,
             this.createBackUpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -132,21 +135,21 @@
             // jewerliesToolStripMenuItem
             // 
             this.jewerliesToolStripMenuItem.Name = "jewerliesToolStripMenuItem";
-            this.jewerliesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.jewerliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jewerliesToolStripMenuItem.Text = "Jewerlies";
             this.jewerliesToolStripMenuItem.Click += new System.EventHandler(this.JewerliesToolStripMenuItem_Click);
             // 
             // ordersToolStripMenuItem
             // 
             this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
-            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ordersToolStripMenuItem.Text = "Orders";
             this.ordersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
             // productJewerliesToolStripMenuItem
             // 
             this.productJewerliesToolStripMenuItem.Name = "productJewerliesToolStripMenuItem";
-            this.productJewerliesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.productJewerliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.productJewerliesToolStripMenuItem.Text = "Product Jewerlies";
             this.productJewerliesToolStripMenuItem.Click += new System.EventHandler(this.ProductJewerliesToolStripMenuItem_Click);
             // 

@@ -1,3 +1,4 @@
+
 ﻿using AbstractJewerlyStoreBusinessLogic.Attributes;
 using System;
 using System.Collections.Generic;

@@ -11,10 +11,12 @@ namespace AbstractJewerlyStoreFileImplement.Implements
 {
     public class JewerlyLogic : IJewerlyLogic
     {
-        private readonly FileDataListSingleton source;        public JewerlyLogic()
+        private readonly FileDataListSingleton source;
+        public JewerlyLogic()
         {
             source = FileDataListSingleton.GetInstance();
-        }        public void CreateOrUpdate(JewerlyBindingModel model)
+        }
+        public void CreateOrUpdate(JewerlyBindingModel model)
         {
             Jewerly element = source.Jewerlies.FirstOrDefault(rec => rec.JewerlyName == model.JewerlyName && rec.Id != model.Id);
             if (element != null)
@@ -36,7 +38,8 @@ namespace AbstractJewerlyStoreFileImplement.Implements
                 source.Jewerlies.Add(element);
             }
             element.JewerlyName = model.JewerlyName;
-        }        public void Delete(JewerlyBindingModel model)
+        }
+        public void Delete(JewerlyBindingModel model)
         {
             Jewerly element = source.Jewerlies.FirstOrDefault(rec => rec.Id ==
            model.Id);
