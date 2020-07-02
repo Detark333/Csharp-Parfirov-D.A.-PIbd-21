@@ -1,3 +1,4 @@
+
 ﻿using AbstractJewerlyStoreBusinessLogic.Enums;
 using AbstractJewerlyStoreFileImplement.Models;
 using System;
@@ -5,7 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using System.Xml.Serialization;
+using System.Xml.Serialization;
+
 
 namespace AbstractJewerlyStoreFileImplement
 {
@@ -100,18 +102,16 @@ namespace AbstractJewerlyStoreFileImplement
                         ProductId = Convert.ToInt32(elem.Element("ProductId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
-                        Status = (OrderStatus)Enum.Parse(typeof(OrderStatus),
-                   elem.Element("Status").Value),
-                        DateCreate =
-                   Convert.ToDateTime(elem.Element("DateCreate").Value),
-                        DateImplement =
-                   string.IsNullOrEmpty(elem.Element("DateImplement").Value) ? (DateTime?)null :
-                   Convert.ToDateTime(elem.Element("DateImplement").Value),
+                        Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), elem.Element("Status").Value),
+                        DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value),
+                        DateImplement = string.IsNullOrEmpty(elem.Element("DateImplement").Value) ? (DateTime?)null :
+                        Convert.ToDateTime(elem.Element("DateImplement").Value),
                     });
                 }
             }
             return list;
-        }
+        }
+
         private List<Product> LoadProducts()
         {
             var list = new List<Product>();
@@ -150,7 +150,8 @@ namespace AbstractJewerlyStoreFileImplement
                 }
             }
             return list;
-        }        private void SaveJewerlies()
+        }
+        private void SaveJewerlies()
         {
             if (Jewerlies != null)
             {
@@ -200,7 +201,8 @@ namespace AbstractJewerlyStoreFileImplement
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ProductFileName);
             }
-        }        private void SaveProductJewerlies()
+        }
+        private void SaveProductJewerlies()
         {
             if (ProductJewerlies != null)
             {

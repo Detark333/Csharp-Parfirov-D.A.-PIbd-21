@@ -15,7 +15,8 @@ namespace AbstractJewerlyStoreFileImplement.Implements
         public ProductLogic()
         {
             source = FileDataListSingleton.GetInstance();
-        }        public void CreateOrUpdate(ProductBindingModel model)
+        }
+        public void CreateOrUpdate(ProductBindingModel model)
         {
             Product element = source.Products.FirstOrDefault(rec => rec.ProductName ==
            model.ProductName && rec.Id != model.Id);
