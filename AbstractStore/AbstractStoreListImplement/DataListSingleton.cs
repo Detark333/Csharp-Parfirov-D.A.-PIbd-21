@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbstractJewerlyFileImplement
+namespace AbstractStoreListImplement
 {
     public class DataListSingleton
     {
