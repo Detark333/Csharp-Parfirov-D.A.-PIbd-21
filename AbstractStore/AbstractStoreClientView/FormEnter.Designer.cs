@@ -100,7 +100,7 @@
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.LoginLabel);
             this.Name = "FormEnter";
-            this.Text = "FormEnter";
+            this.Text = "Enter";
             this.ResumeLayout(false);
             this.PerformLayout();
 
