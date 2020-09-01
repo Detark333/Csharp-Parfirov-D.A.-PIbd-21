@@ -19,12 +19,14 @@ namespace AbstractJewerlyStoreFileImplement
         private readonly string ProductJewerlyFileName = "ProductComponent.xml";
         private readonly string ClientFileName = "Client.xml";
         private readonly string ImplementerFileName = "Implementer.xml";
-        public List<Implementer> Implementers { get; set; }
+        private readonly string MessageFileName = "Message.xml";
+        public List<MessageInfo> Messages { get; set; }
         public List<Client> Clients { get; set; }
         public List<Jewerly> Jewerlies { get; set; }
         public List<Order> Orders { get; set; }
         public List<Product> Products { get; set; }
         public List<ProductJewerly> ProductJewerlies { get; set; }
+        public List<Implementer> Implementers { get; set; }
         private FileDataListSingleton()
         {
             Jewerlies = LoadJewerlies();
@@ -33,6 +35,7 @@ namespace AbstractJewerlyStoreFileImplement
             ProductJewerlies = LoadProductComponents();
             Clients = LoadClients();
             Implementers = LoadImplementers();
+            Messages = LoadMessages();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -50,6 +53,48 @@ namespace AbstractJewerlyStoreFileImplement
             SaveProductJewerlies();
             SaveClients();
             SaveImplementers();
+            SaveMessages();
+        }
+        private void SaveMessages()
+        {
+            if (Messages != null)
+            {
+                var xElement = new XElement("Messages");
+                foreach (var message in Messages)
+                {
+                    xElement.Add(new XElement("Message",
+                    new XAttribute("MessageId", message.MessageId),
+                    new XElement("ClientId", message.ClientId),
+                    new XElement("SenderName", message.SenderName),
+                    new XElement("Subject", message.Subject),
+                    new XElement("Body", message.Body),
+                    new XElement("DeliveryDate", message.DeliveryDate)));
+                }
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(ImplementerFileName);
+            }
+        }
+        private List<MessageInfo> LoadMessages()
+        {
+            var list = new List<MessageInfo>();
+            if (File.Exists(ClientFileName))
+            {
+                XDocument xDocument = XDocument.Load(MessageFileName);
+                var xElements = xDocument.Root.Elements("Message").ToList();
+                foreach (var elem in xElements)
+                {
+                    list.Add(new MessageInfo
+                    {
+                        MessageId = elem.Attribute("MessageId").Value,
+                        ClientId = Convert.ToInt32(elem.Element("ClientId").Value),
+                        SenderName = elem.Element("SenderName").Value,
+                        Subject = elem.Element("Subject").Value,
+                        Body = elem.Element("Body").Value,
+                        DeliveryDate = Convert.ToDateTime(elem.Element("DeliveryDate").Value)
+                    });
+                }
+            }
+            return list;
         }
         private List<Implementer> LoadImplementers()
         {
@@ -70,6 +115,23 @@ namespace AbstractJewerlyStoreFileImplement
                 }
             }
             return list;
+        }
+        private void SaveImplementers()
+        {
+            if (Implementers != null)
+            {
+                var xElement = new XElement("Implementers");
+                foreach (var implementer in Implementers)
+                {
+                    xElement.Add(new XElement("Implementer",
+                    new XAttribute("Id", implementer.Id),
+                    new XElement("FIO", implementer.FIO),
+                    new XElement("WorkingTime", implementer.WorkingTime),
+                    new XElement("PauseTime", implementer.PauseTime)));
+                }
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(ImplementerFileName);
+            }
         }
         private List<Client> LoadClients()
         {
@@ -243,23 +305,6 @@ namespace AbstractJewerlyStoreFileImplement
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ProductJewerlyFileName);
-            }
-        }
-        private void SaveImplementers()
-        {
-            if (Implementers != null)
-            {
-                var xElement = new XElement("Implementers");
-                foreach (var implementer in Implementers)
-                {
-                    xElement.Add(new XElement("Implementer",
-                    new XAttribute("Id", implementer.Id),
-                    new XElement("FIO", implementer.FIO),
-                    new XElement("WorkingTime", implementer.WorkingTime),
-                    new XElement("PauseTime", implementer.PauseTime)));
-                }
-                XDocument xDocument = new XDocument(xElement);
-                xDocument.Save(ImplementerFileName);
             }
         }
         private void SaveClients()

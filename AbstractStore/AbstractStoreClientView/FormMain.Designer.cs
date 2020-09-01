@@ -21,6 +21,7 @@
             this.createOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdateOrderListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdateAccountStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.messagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordersGridView = new System.Windows.Forms.DataGridView();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersGridView)).BeginInit();
@@ -31,7 +32,8 @@
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createOrderToolStripMenuItem,
             this.UpdateOrderListToolStripMenuItem,
-            this.UpdateAccountStripMenuItem});
+            this.UpdateAccountStripMenuItem,
+            this.messagesToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -59,6 +61,13 @@
             this.UpdateAccountStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.UpdateAccountStripMenuItem.Text = "Изменить данные";
             this.UpdateAccountStripMenuItem.Click += new System.EventHandler(this.UpdateAccountToolStripMenuItem_Click);
+            // 
+            // messagesToolStripMenuItem
+            // 
+            this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
+            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.messagesToolStripMenuItem.Text = "Письма";
+            this.messagesToolStripMenuItem.Click += new System.EventHandler(this.MessagesToolStripMenuItem_Click);
             // 
             // ordersGridView
             // 
@@ -99,6 +108,7 @@
         private System.Windows.Forms.ToolStripMenuItem createOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UpdateOrderListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UpdateAccountStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem messagesToolStripMenuItem;
         private System.Windows.Forms.DataGridView ordersGridView;
     }
 }

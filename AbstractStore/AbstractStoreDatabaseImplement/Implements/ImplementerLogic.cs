@@ -15,8 +15,8 @@ namespace AbstractStoreDatabaseImplement.Implements
         {
             using (var context = new AbstractStoreDatabase())
             {
-                Implementer element = context.Implementers.FirstOrDefault(rec => rec.ImplementerFIO
-                == model.FIO && rec.Id != model.Id);
+                Implementer element = context.Implementers.FirstOrDefault(rec =>
+                rec.ImplementerFIO == model.FIO && rec.Id != model.Id);
                 if (element != null)
                 {
                     throw new Exception("Исполнитель с такими данными уже существует");

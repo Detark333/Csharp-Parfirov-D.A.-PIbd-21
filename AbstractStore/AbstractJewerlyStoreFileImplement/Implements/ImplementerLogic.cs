@@ -20,15 +20,15 @@ namespace AbstractJewerlyStoreFileImplement.Implements
 
         public void CreateOrUpdate(ImplementerBindingModel model)
         {
-            Implementer element = source.Implementers.FirstOrDefault(rec =>
-            rec.FIO == model.FIO && rec.Id != model.Id);
+            Implementer element = context.Implementers.FirstOrDefault(rec =>
+            rec.ImplementerFIO == model.FIO && rec.Id != model.Id);
             if (element != null)
             {
                 throw new Exception("Исполнитель с такими данными уже существует");
             }
             if (model.Id.HasValue)
             {
-                element = source.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
+                element = context.Implementers.FirstOrDefault(rec => rec.Id == model.Id);
                 if (element == null)
                 {
                     throw new Exception("Исполнитель не найден");

@@ -4,14 +4,16 @@ using AbstractStoreDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AbstractStoreDatabaseImplement.Migrations
 {
     [DbContext(typeof(AbstractStoreDatabase))]
-    partial class AbstractStoreDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20200604123928_DBUpdate3")]
+    partial class DBUpdate3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

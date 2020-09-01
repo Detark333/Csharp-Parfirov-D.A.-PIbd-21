@@ -19,7 +19,7 @@ namespace AbstractJewelryStoreView
         private readonly IOrderLogic orderLogic;
         private readonly ReportLogic report;
         private readonly WorkModeling workModeling;
-        public FormMain(WorkModeling workModeling, MainLogic logic, IOrderLogic orderLogic, ReportLogic report)
+        public FormMain(WorkModeling workModeling,MainLogic logic, IOrderLogic orderLogic, ReportLogic report)
         {
             InitializeComponent();
             this.logic = logic;
@@ -69,7 +69,12 @@ namespace AbstractJewelryStoreView
             var form = Container.Resolve<FormCountJewerly>();
             form.ShowDialog();
         }
-
+        private void MessagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormMessage>();
+            form.ShowDialog();
+        }
+        
         private void ProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormJProduct>();
@@ -126,14 +131,9 @@ namespace AbstractJewelryStoreView
             if (dataGridView.SelectedRows.Count == 1)
             {
                 int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                int implementerId = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[2].Value);
                 try
                 {
-                    logic.PayOrder(new ChangeStatusBindingModel
-                    {
-                        OrderId = id,
-                        ImplementerId = implementerId
-                    });
+                    logic.PayOrder(new ChangeStatusBindingModel { OrderId = id });
                     LoadData();
                 }
                 catch (Exception ex)
@@ -182,6 +182,18 @@ namespace AbstractJewelryStoreView
         {
             var form = Container.Resolve<FormClients>();
             form.ShowDialog();
+        }
+
+        private void implementorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormImplementer>();
+            form.ShowDialog();
+        }
+
+        private void gettingStartedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            workModeling.DoWork();
+            LoadData();
         }
     }
 }

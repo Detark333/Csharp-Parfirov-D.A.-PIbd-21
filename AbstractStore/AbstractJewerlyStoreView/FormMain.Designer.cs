@@ -32,17 +32,30 @@
             this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jewerlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.implementorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jewerliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productJewerliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImplementerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Implementer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompletionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonPayed = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
-            this.workUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.implemenetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gettingStartedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.messagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +64,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manualToolStripMenuItem,
             this.reportsToolStripMenuItem,
-            this.workUpToolStripMenuItem});
+            this.gettingStartedToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -63,7 +76,9 @@
             this.manualToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.jewerlyToolStripMenuItem,
             this.productToolStripMenuItem,
-            this.implemenetsToolStripMenuItem});
+            this.clientsToolStripMenuItem,
+            this.implementorsToolStripMenuItem,
+            this.messagesToolStripMenuItem});
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
             this.manualToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.manualToolStripMenuItem.Text = "Manual";
@@ -71,16 +86,30 @@
             // jewerlyToolStripMenuItem
             // 
             this.jewerlyToolStripMenuItem.Name = "jewerlyToolStripMenuItem";
-            this.jewerlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jewerlyToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.jewerlyToolStripMenuItem.Text = "Jewerly";
             this.jewerlyToolStripMenuItem.Click += new System.EventHandler(this.JewerlyToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.ProductToolStripMenuItem_Click);
+            // 
+            // clientsToolStripMenuItem
+            // 
+            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.clientsToolStripMenuItem.Text = "Clients";
+            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
+            // 
+            // implementorsToolStripMenuItem
+            // 
+            this.implementorsToolStripMenuItem.Name = "implementorsToolStripMenuItem";
+            this.implementorsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.implementorsToolStripMenuItem.Text = "Implementors";
+            this.implementorsToolStripMenuItem.Click += new System.EventHandler(this.implementorsToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -95,31 +124,111 @@
             // jewerliesToolStripMenuItem
             // 
             this.jewerliesToolStripMenuItem.Name = "jewerliesToolStripMenuItem";
-            this.jewerliesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.jewerliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jewerliesToolStripMenuItem.Text = "Jewerlies";
             this.jewerliesToolStripMenuItem.Click += new System.EventHandler(this.JewerliesToolStripMenuItem_Click);
             // 
             // ordersToolStripMenuItem
             // 
             this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
-            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ordersToolStripMenuItem.Text = "Orders";
             this.ordersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
             // productJewerliesToolStripMenuItem
             // 
             this.productJewerliesToolStripMenuItem.Name = "productJewerliesToolStripMenuItem";
-            this.productJewerliesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.productJewerliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.productJewerliesToolStripMenuItem.Text = "Product Jewerlies";
             this.productJewerliesToolStripMenuItem.Click += new System.EventHandler(this.ProductJewerliesToolStripMenuItem_Click);
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(12, 27);
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OrderID,
+            this.Client,
+            this.ImplementerId,
+            this.Implementer,
+            this.ProductName,
+            this.Count,
+            this.Sum,
+            this.OrderStatus,
+            this.DateCreate,
+            this.CompletionDate});
+            this.dataGridView.Location = new System.Drawing.Point(33, 27);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(643, 335);
             this.dataGridView.TabIndex = 1;
+            // 
+            // OrderID
+            // 
+            this.OrderID.HeaderText = "ID";
+            this.OrderID.Name = "OrderID";
+            this.OrderID.ReadOnly = true;
+            this.OrderID.Visible = false;
+            // 
+            // Client
+            // 
+            this.Client.HeaderText = "Клиент";
+            this.Client.Name = "Client";
+            this.Client.ReadOnly = true;
+            this.Client.Width = 150;
+            // 
+            // ImplementerId
+            // 
+            this.ImplementerId.HeaderText = "ImplementerId";
+            this.ImplementerId.Name = "ImplementerId";
+            this.ImplementerId.ReadOnly = true;
+            this.ImplementerId.Visible = false;
+            // 
+            // Implementer
+            // 
+            this.Implementer.HeaderText = "Исполнитель";
+            this.Implementer.Name = "Implementer";
+            this.Implementer.ReadOnly = true;
+            this.Implementer.Width = 200;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "Product";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Count
+            // 
+            this.Count.HeaderText = "Количество";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            // 
+            // Sum
+            // 
+            this.Sum.HeaderText = "Сумма заказа";
+            this.Sum.Name = "Sum";
+            this.Sum.ReadOnly = true;
+            this.Sum.Width = 120;
+            // 
+            // OrderStatus
+            // 
+            this.OrderStatus.HeaderText = "Статус";
+            this.OrderStatus.Name = "OrderStatus";
+            this.OrderStatus.ReadOnly = true;
+            // 
+            // DateCreate
+            // 
+            this.DateCreate.HeaderText = "Дата создания";
+            this.DateCreate.Name = "DateCreate";
+            this.DateCreate.ReadOnly = true;
+            this.DateCreate.Width = 120;
+            // 
+            // CompletionDate
+            // 
+            this.CompletionDate.HeaderText = "Дата исполнения";
+            this.CompletionDate.Name = "CompletionDate";
+            this.CompletionDate.ReadOnly = true;
+            this.CompletionDate.Width = 120;
             // 
             // buttonCreateOrder
             // 
@@ -151,17 +260,19 @@
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
-            // workUpToolStripMenuItem
+            // gettingStartedToolStripMenuItem
             // 
-            this.workUpToolStripMenuItem.Name = "workUpToolStripMenuItem";
-            this.workUpToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.workUpToolStripMenuItem.Text = "Work Up";
+            this.gettingStartedToolStripMenuItem.Name = "gettingStartedToolStripMenuItem";
+            this.gettingStartedToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.gettingStartedToolStripMenuItem.Text = "Getting Started";
+            this.gettingStartedToolStripMenuItem.Click += new System.EventHandler(this.gettingStartedToolStripMenuItem_Click);
             // 
-            // implemenetsToolStripMenuItem
+            // messagesToolStripMenuItem
             // 
-            this.implemenetsToolStripMenuItem.Name = "implemenetsToolStripMenuItem";
-            this.implemenetsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.implemenetsToolStripMenuItem.Text = "Implemenets";
+            this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
+            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.messagesToolStripMenuItem.Text = "Письма";
+            this.messagesToolStripMenuItem.Click += new System.EventHandler(this.MessagesToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -199,7 +310,20 @@
         private System.Windows.Forms.ToolStripMenuItem jewerliesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ordersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productJewerliesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem implemenetsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem workUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem implementorsToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Client;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImplementerId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Implementer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateImplement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompletionDate;
+        private System.Windows.Forms.ToolStripMenuItem gettingStartedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem messagesToolStripMenuItem;
     }
 }
