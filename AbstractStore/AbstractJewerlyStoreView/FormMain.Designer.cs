@@ -119,7 +119,7 @@
             // 
             this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
             this.messagesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.messagesToolStripMenuItem.Text = "Письма";
+            this.messagesToolStripMenuItem.Text = "Letter";
             this.messagesToolStripMenuItem.Click += new System.EventHandler(this.MessagesToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
@@ -190,7 +190,7 @@
             // 
             // Client
             // 
-            this.Client.HeaderText = "Клиент";
+            this.Client.HeaderText = "Client";
             this.Client.Name = "Client";
             this.Client.ReadOnly = true;
             this.Client.Width = 150;
@@ -204,7 +204,7 @@
             // 
             // Implementer
             // 
-            this.Implementer.HeaderText = "Исполнитель";
+            this.Implementer.HeaderText = "Implementer";
             this.Implementer.Name = "Implementer";
             this.Implementer.ReadOnly = true;
             this.Implementer.Width = 200;
@@ -217,33 +217,33 @@
             // 
             // Count
             // 
-            this.Count.HeaderText = "Количество";
+            this.Count.HeaderText = "Count";
             this.Count.Name = "Count";
             this.Count.ReadOnly = true;
             // 
             // Sum
             // 
-            this.Sum.HeaderText = "Сумма заказа";
+            this.Sum.HeaderText = "Sum";
             this.Sum.Name = "Sum";
             this.Sum.ReadOnly = true;
             this.Sum.Width = 120;
             // 
             // OrderStatus
             // 
-            this.OrderStatus.HeaderText = "Статус";
+            this.OrderStatus.HeaderText = "Status";
             this.OrderStatus.Name = "OrderStatus";
             this.OrderStatus.ReadOnly = true;
             // 
             // DateCreate
             // 
-            this.DateCreate.HeaderText = "Дата создания";
+            this.DateCreate.HeaderText = "Creation date";
             this.DateCreate.Name = "DateCreate";
             this.DateCreate.ReadOnly = true;
             this.DateCreate.Width = 120;
             // 
             // CompletionDate
             // 
-            this.CompletionDate.HeaderText = "Дата исполнения";
+            this.CompletionDate.HeaderText = "Completion date";
             this.CompletionDate.Name = "CompletionDate";
             this.CompletionDate.ReadOnly = true;
             this.CompletionDate.Width = 120;
