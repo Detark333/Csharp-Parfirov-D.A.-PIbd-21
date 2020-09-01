@@ -108,7 +108,7 @@
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.labelLogin);
             this.Name = "RegisterForm";
-            this.Text = "RegisterForm";
+            this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();
 
