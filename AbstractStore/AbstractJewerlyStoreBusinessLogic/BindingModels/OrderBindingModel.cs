@@ -12,7 +12,9 @@ namespace AbstractJewerlyStoreBusinessLogic.BindingModels
         public int Count { get; set; }
         public decimal Sum { get; set; }
         public OrderStatus Status { get; set; }
-        public DateTime DateCreate { get; set; }
-        public DateTime? DateImplement { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime? CompletionDate { get; set; }
+        public DateTime? DateFrom { get; set; }
+        public DateTime? DateTo { get; set; }
     }
 }

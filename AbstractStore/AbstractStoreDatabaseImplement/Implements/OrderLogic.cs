@@ -25,6 +25,7 @@ namespace AbstractStoreDatabaseImplement.Implements
                     {
                         throw new Exception("Элемент не найден");
                     }
+
                 }
                 else
                 {
@@ -33,8 +34,8 @@ namespace AbstractStoreDatabaseImplement.Implements
                 }
                 element.Count = model.Count;
                 element.Sum = model.Sum;
-                element.DateCreate = model.DateCreate;
-                element.DateImplement = model.DateImplement;
+                element.DateCreate = model.CreationDate;
+                element.DateImplement = model.CompletionDate;
                 element.Status = model.Status;
                 element.ProductId = model.ProductId;
                 context.SaveChanges();
@@ -64,7 +65,10 @@ namespace AbstractStoreDatabaseImplement.Implements
             {
                 return context.Orders
                 .Include(rec => rec.Product)
-                .Where(rec => model == null || rec.Id == model.Id)
+                .Where(rec => model == null || rec.Id == model.Id
+                || model.DateFrom.HasValue && model.DateTo.HasValue
+                && rec.DateCreate >= model.DateFrom.Value
+                && rec.DateCreate <= model.DateTo.Value)
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
