@@ -34,8 +34,8 @@ namespace AbstractStoreDatabaseImplement.Implements
                 }
                 element.Count = model.Count;
                 element.Sum = model.Sum;
-                element.DateCreate = model.DateCreate;
-                element.DateImplement = model.DateImplement;
+                element.DateCreate = model.CreationDate;
+                element.DateImplement = model.CompletionDate;
                 element.Status = model.Status;
                 element.ProductId = model.ProductId;
                 context.SaveChanges();
