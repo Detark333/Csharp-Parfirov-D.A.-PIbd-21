@@ -123,7 +123,7 @@
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.labelProduct);
             this.Name = "OrderCreationForm";
-            this.Text = "OrderCreationForm";
+            this.Text = "Create order";
             this.Load += new System.EventHandler(this.OrderCreationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
