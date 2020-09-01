@@ -89,7 +89,7 @@
             this.Controls.Add(this.dateTimePickerTo);
             this.Controls.Add(this.dateTimePickerFrom);
             this.Name = "FormPDF";
-            this.Text = "FormPDF";
+            this.Text = "Report PDF";
             this.Load += new System.EventHandler(this.FormPDF_Load);
             this.ResumeLayout(false);
 
