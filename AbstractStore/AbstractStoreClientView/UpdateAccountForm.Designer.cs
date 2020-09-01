@@ -108,7 +108,7 @@
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.labelLogin);
             this.Name = "UpdateAccountForm";
-            this.Text = "UpdateAccountForm";
+            this.Text = "Update account";
             this.ResumeLayout(false);
             this.PerformLayout();
 
