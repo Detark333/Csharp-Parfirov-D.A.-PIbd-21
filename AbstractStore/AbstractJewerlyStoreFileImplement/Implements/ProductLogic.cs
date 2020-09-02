@@ -1,7 +1,7 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
-using AbstractJewerlyFileImplement.Models;
+using AbstractJewerlyStoreFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,8 @@ namespace AbstractJewerlyStoreFileImplement.Implements
         public ProductLogic()
         {
             source = FileDataListSingleton.GetInstance();
-        }        public void CreateOrUpdate(ProductBindingModel model)
+        }
+        public void CreateOrUpdate(ProductBindingModel model)
         {
             Product element = source.Products.FirstOrDefault(rec => rec.ProductName ==
            model.ProductName && rec.Id != model.Id);
@@ -42,13 +43,13 @@ namespace AbstractJewerlyStoreFileImplement.Implements
             element.Price = model.Price;
             source.ProductJewerlies.RemoveAll(rec => rec.ProductId == model.Id &&
            !model.ProductJewerlies.ContainsKey(rec.JewerlyId));
-            var updateComponents = source.ProductJewerlies.Where(rec => rec.ProductId ==
+            var updateJewerlies = source.ProductJewerlies.Where(rec => rec.ProductId ==
            model.Id && model.ProductJewerlies.ContainsKey(rec.JewerlyId));
-            foreach (var updateComponent in updateComponents)
+            foreach (var updateJewerly in updateJewerlies)
             {
-                updateComponent.Count =
-               model.ProductJewerlies[updateComponent.JewerlyId].Item2;
-                model.ProductJewerlies.Remove(updateComponent.JewerlyId);
+                updateJewerly.Count =
+               model.ProductJewerlies[updateJewerly.JewerlyId].Item2;
+                model.ProductJewerlies.Remove(updateJewerly.JewerlyId);
             }
             int maxPCId = source.ProductJewerlies.Count > 0 ?
            source.ProductJewerlies.Max(rec => rec.Id) : 0;

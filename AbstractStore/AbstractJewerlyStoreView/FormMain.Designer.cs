@@ -42,6 +42,7 @@
             this.buttonOrderDone = new System.Windows.Forms.Button();
             this.buttonPayed = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,8 @@
             // 
             this.manualToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.jewerlyToolStripMenuItem,
-            this.productToolStripMenuItem});
+            this.productToolStripMenuItem,
+            this.clientsToolStripMenuItem});
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
             this.manualToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.manualToolStripMenuItem.Text = "Manual";
@@ -69,14 +71,14 @@
             // jewerlyToolStripMenuItem
             // 
             this.jewerlyToolStripMenuItem.Name = "jewerlyToolStripMenuItem";
-            this.jewerlyToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.jewerlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jewerlyToolStripMenuItem.Text = "Jewerly";
             this.jewerlyToolStripMenuItem.Click += new System.EventHandler(this.JewerlyToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.ProductToolStripMenuItem_Click);
             // 
@@ -93,21 +95,21 @@
             // jewerliesToolStripMenuItem
             // 
             this.jewerliesToolStripMenuItem.Name = "jewerliesToolStripMenuItem";
-            this.jewerliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jewerliesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.jewerliesToolStripMenuItem.Text = "Jewerlies";
             this.jewerliesToolStripMenuItem.Click += new System.EventHandler(this.JewerliesToolStripMenuItem_Click);
             // 
             // ordersToolStripMenuItem
             // 
             this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
-            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.ordersToolStripMenuItem.Text = "Orders";
             this.ordersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
             // productJewerliesToolStripMenuItem
             // 
             this.productJewerliesToolStripMenuItem.Name = "productJewerliesToolStripMenuItem";
-            this.productJewerliesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productJewerliesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.productJewerliesToolStripMenuItem.Text = "Product Jewerlies";
             this.productJewerliesToolStripMenuItem.Click += new System.EventHandler(this.ProductJewerliesToolStripMenuItem_Click);
             // 
@@ -169,6 +171,13 @@
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
+            // clientsToolStripMenuItem
+            // 
+            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientsToolStripMenuItem.Text = "Clients";
+            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,5 +218,6 @@
         private System.Windows.Forms.ToolStripMenuItem jewerliesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ordersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productJewerliesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
     }
 }

@@ -23,6 +23,7 @@ namespace AbstractJewerlyStoreView
         {
             var currentContainer = new UnityContainer();
             currentContainer.RegisterType<IJewerlyLogic, JewerlyLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IClientLogic, ClientLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IOrderLogic, OrderLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IProductLogic, ProductLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<MainLogic>(new HierarchicalLifetimeManager());

@@ -1,7 +1,7 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
-using AbstractJewerlyFileImplement.Models;
+using AbstractJewerlyStoreFileImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,11 +33,12 @@ namespace AbstractJewerlyStoreFileImplement.Implements
                 order = new Order { Id = maxId + 1 };
             }
             order.ProductId = model.ProductId;
+            order.ClientId = model.ClientId.Value;
             order.Status = model.Status;
             order.Count = model.Count;
             order.Sum = model.Sum;
-            order.DateCreate = model.DateCreate;
-            order.DateImplement = model.DateImplement;
+            order.DateCreate = model.CreationDate;
+            order.DateImplement = model.CompletionDate;
             source.Orders.Add(order);
         }
         public void Delete(OrderBindingModel model)
@@ -56,9 +57,15 @@ namespace AbstractJewerlyStoreFileImplement.Implements
         public List<OrderViewModel> Read(OrderBindingModel model)
         {
             return source.Orders
-            .Where(rec => model == null || rec.Id == model.Id)
+            .Where(rec => model == null || rec.Id == model.Id
+            || rec.DateCreate >= model.DateFrom.Value
+           && rec.DateImplement <= model.DateTo.Value
+           || model.ClientId.HasValue && model.ClientId == rec.ClientId)
             .Select(rec => new OrderViewModel
             {
+                ClientId = rec.ClientId,
+                ClientLogin = source.Clients.FirstOrDefault(cl =>
+                cl.Id == rec.Id)?.Login,
                 Id = rec.Id,
                 Count = rec.Count,
                 DateCreate = rec.DateCreate,

@@ -20,10 +20,12 @@ namespace AbstractJewelryStoreView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly IProductLogic logicP;
+        private readonly IClientLogic clientLogic;
         private readonly MainLogic logicM;
-        public FormOrder(IProductLogic logicP, MainLogic logicM)
+        public FormOrder(IProductLogic logicP, MainLogic logicM, IClientLogic clientLogic)
         {
             InitializeComponent();
+            this.clientLogic = clientLogic;
             this.logicP = logicP;
             this.logicM = logicM;
         }
@@ -39,6 +41,14 @@ namespace AbstractJewelryStoreView
                     comboBoxProduct.DataSource = list;
                     comboBoxProduct.SelectedItem = null;
 
+                }
+                List<ClientViewModel> clientList = clientLogic.Read(null);
+                if (clientList != null)
+                {
+                    comboBoxCLient.DisplayMember = "Login";
+                    comboBoxCLient.ValueMember = "Id";
+                    comboBoxCLient.DataSource = clientList;
+                    comboBoxCLient.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -95,11 +105,18 @@ namespace AbstractJewelryStoreView
                MessageBoxIcon.Error);
                 return;
             }
+            if (comboBoxCLient.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите клиента", "Ошибка", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 logicM.CreateOrder(new CreateOrderBindingModel
                 {
                     ProductId = Convert.ToInt32(comboBoxProduct.SelectedValue),
+                    ClientId = Convert.ToInt32(comboBoxCLient.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });

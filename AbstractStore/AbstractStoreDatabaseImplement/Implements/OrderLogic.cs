@@ -16,7 +16,7 @@ namespace AbstractStoreDatabaseImplement.Implements
         {
             using (var context = new AbstractStoreDatabase())
             {
-                Order element = new Order();
+                Order element;
                 if (model.Id.HasValue)
                 {
                     element = context.Orders.FirstOrDefault(rec => rec.Id == model.Id);
@@ -25,13 +25,13 @@ namespace AbstractStoreDatabaseImplement.Implements
                     {
                         throw new Exception("Элемент не найден");
                     }
-
                 }
                 else
                 {
-                    element = new Order {};
+                    element = new Order();
                     context.Orders.Add(element);
                 }
+                element.ClientId = model.ClientId.Value;
                 element.Count = model.Count;
                 element.Sum = model.Sum;
                 element.DateCreate = model.CreationDate;
@@ -66,11 +66,14 @@ namespace AbstractStoreDatabaseImplement.Implements
                 return context.Orders
                 .Include(rec => rec.Product)
                 .Where(rec => model == null || rec.Id == model.Id
-                || model.DateFrom.HasValue && model.DateTo.HasValue
+                || (model.DateFrom.HasValue && model.DateTo.HasValue
                 && rec.DateCreate >= model.DateFrom.Value
                 && rec.DateCreate <= model.DateTo.Value)
+                || model.ClientId.HasValue && model.ClientId == rec.ClientId)
                 .Select(rec => new OrderViewModel
                 {
+                    ClientId = rec.ClientId,
+                    ClientLogin = rec.Client.Login,
                     Id = rec.Id,
                     Count = rec.Count,
                     Sum = rec.Sum,

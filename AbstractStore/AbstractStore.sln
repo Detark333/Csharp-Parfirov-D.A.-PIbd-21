@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractStoreListImplement"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractJewerlyStoreView", "AbstractJewerlyStoreView\AbstractJewerlyStoreView.csproj", "{D44E0E29-19BB-4FA5-B9C8-168B080BEC9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractJewerlyStoreFileImplement", "AbstractJewerlyStoreFileImplement\AbstractJewerlyStoreFileImplement.csproj", "{E15ACAEF-DECB-4EE9-8EBC-86EC893C4CAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractJewerlyStoreFileImplement", "AbstractJewerlyStoreFileImplement\AbstractJewerlyStoreFileImplement.csproj", "{E15ACAEF-DECB-4EE9-8EBC-86EC893C4CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractStoreDatabaseImplement", "AbstractStoreDatabaseImplement\AbstractStoreDatabaseImplement.csproj", "{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractStoreDatabaseImplement", "AbstractStoreDatabaseImplement\AbstractStoreDatabaseImplement.csproj", "{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractStoreClientView", "AbstractStoreClientView\AbstractStoreClientView.csproj", "{5FA641E1-E832-43BA-AEFC-06BE7BF3E909}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractStoreRestApi", "AbstractStoreRestApi\AbstractStoreRestApi.csproj", "{DEF73624-F9A8-498C-AB09-423AAECDB485}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EB5F4FB-D891-40F5-8CE3-5E65FCC92B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FA641E1-E832-43BA-AEFC-06BE7BF3E909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA641E1-E832-43BA-AEFC-06BE7BF3E909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA641E1-E832-43BA-AEFC-06BE7BF3E909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA641E1-E832-43BA-AEFC-06BE7BF3E909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEF73624-F9A8-498C-AB09-423AAECDB485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF73624-F9A8-498C-AB09-423AAECDB485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF73624-F9A8-498C-AB09-423AAECDB485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF73624-F9A8-498C-AB09-423AAECDB485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -111,7 +111,7 @@
             this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.dataGridViewOrders);
             this.Name = "FormExcel";
-            this.Text = "Report Exel";
+            this.Text = "Report Excel";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
             this.ResumeLayout(false);
 

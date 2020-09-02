@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbstractJewerlyFileImplement.Models
+namespace AbstractJewerlyStoreFileImplement.Models
 {
     public class Jewerly
     {

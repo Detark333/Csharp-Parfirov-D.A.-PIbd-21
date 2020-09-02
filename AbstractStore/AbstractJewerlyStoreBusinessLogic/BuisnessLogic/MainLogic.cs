@@ -19,6 +19,7 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 ProductId = model.ProductId,
+                ClientId = model.ClientId,
                 Count = model.Count,
                 Sum = model.Sum,
                 CreationDate = DateTime.Now,
@@ -43,6 +44,7 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
             {
                 Id = order.Id,
                 ProductId = order.ProductId,
+                ClientId = order.ClientId,
                 Count = order.Count,
                 Sum = order.Sum,
                 CreationDate = order.DateCreate,
@@ -68,6 +70,7 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
             {
                 Id = order.Id,
                 ProductId = order.ProductId,
+                ClientId = order.ClientId,
                 Count = order.Count,
                 Sum = order.Sum,
                 CreationDate = order.DateCreate,
@@ -93,6 +96,7 @@ namespace AbstractJewerlyStoreBusinessLogic.BuisnessLogic
             {
                 Id = order.Id,
                 ProductId = order.ProductId,
+                ClientId = order.ClientId,
                 Count = order.Count,
                 Sum = order.Sum,
                 CreationDate = order.DateCreate,
