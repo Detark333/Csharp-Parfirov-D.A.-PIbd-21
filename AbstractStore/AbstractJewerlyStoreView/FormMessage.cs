@@ -17,26 +17,19 @@ namespace AbstractJewerlyStoreView
         [Dependency]
         public new IUnityContainer Container { get; set; }
 
-        private readonly IMessageInfoLogic messageLogic;
+        private readonly IMessageInfoLogic logic;
 
-        public FormMessage(IMessageInfoLogic messageLogic)
+        public FormMessage(IMessageInfoLogic logic)
         {
             InitializeComponent();
-            this.messageLogic = messageLogic;
+            this.logic = logic;
         }
 
         private void LoadData()
         {
             try
             {
-                var list = messageLogic.Read(null);
-                if (list != null)
-                {
-                    messagesGridView.DataSource = list;
-                    messagesGridView.Columns[0].Visible = false;
-                    messagesGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    messagesGridView.Columns[3].Visible = false;
-                }
+                Program.ConfigGrid(logic.Read(null), messagesGridView);
             }
             catch (Exception ex)
             {

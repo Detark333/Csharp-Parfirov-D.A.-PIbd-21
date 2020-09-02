@@ -45,7 +45,7 @@ namespace AbstractStoreDatabaseImplement.Implements
                 {
                     MessageId = rec.MessageId,
                     SenderName = rec.SenderName,
-                    DeliveryDate = rec.DeliveryDate,
+                    DateDelivery = rec.DeliveryDate,
                     Subject = rec.Subject,
                     Body = rec.Body
                 })

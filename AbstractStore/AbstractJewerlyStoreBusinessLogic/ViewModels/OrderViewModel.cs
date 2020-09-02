@@ -1,4 +1,5 @@
-﻿using AbstractJewerlyStoreBusinessLogic.Enums;
+﻿using AbstractJewerlyStoreBusinessLogic.Attributes;
+using AbstractJewerlyStoreBusinessLogic.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,10 +8,11 @@ using System.Text;
 
 namespace AbstractJewerlyStoreBusinessLogic.ViewModels
 {
-    public class OrderViewModel
+    [DataContract]
+
+    public class OrderViewModel : BaseViewModel
     {
-        [DataMember]
-        public int Id { get; set; }
+        
         [DataMember]
         public int ClientId { get; set; }
         [DataMember]
@@ -18,26 +20,29 @@ namespace AbstractJewerlyStoreBusinessLogic.ViewModels
         [DataMember]
         public int? ImplementerId { get; set; }
         [DataMember]
-        [DisplayName("Клиент")]
+        [Column(title: "Client", width: 150)]
         public string ClientLogin { get; set; }
+        [Column(title: "Implementer", width: 150)]
         public string ImplementerFIO { get; set; }
         [DataMember]
-        [DisplayName("Изделие")]
+        [Column(title: "Product", width: 150)]
         public string ProductName { get; set; }
         [DataMember]
-        [DisplayName("Количество")]
+        [Column(title: "Count", width: 100)]
         public int Count { get; set; }
         [DataMember]
-        [DisplayName("Сумма")]
+        [Column(title: "Sum", width: 50)]
         public decimal Sum { get; set; }
         [DataMember]
-        [DisplayName("Статус")]
+        [Column(title: "Status", width: 100)]
         public OrderStatus Status { get; set; }
         [DataMember]
-        [DisplayName("Дата создания")]
+        [Column(title: "Date of Creation", width: 100)]
         public DateTime DateCreate { get; set; }
         [DataMember]
-        [DisplayName("Дата выполнения")]
+        [Column(title: "Date of Implemention", width: 100)]
         public DateTime? DateImplement { get; set; }
+        public override List<string> Properties() => new List<string> { "Id", "ClientLogin", "ProductName", "ImplementerFIO", "Count", "Sum", "Status", "DateCreate", "DateImplement" };
+
     }
 }

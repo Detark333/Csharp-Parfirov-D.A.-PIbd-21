@@ -54,7 +54,7 @@ namespace AbstractStoreListImplement.Implements
             message.ClientId = model.ClientId;
             message.Subject = model.Subject;
             message.Body = model.Body;
-            message.DeliveryDate = model.DeliveryDate;
+            message.DateDelivery = model.DeliveryDate;
             return message;
         }
 
@@ -66,7 +66,7 @@ namespace AbstractStoreListImplement.Implements
                 SenderName = message.SenderName,
                 Subject = message.Subject,
                 Body = message.Body,
-                DeliveryDate = message.DeliveryDate
+                DateDelivery = message.DateDelivery
             };
         }
     }

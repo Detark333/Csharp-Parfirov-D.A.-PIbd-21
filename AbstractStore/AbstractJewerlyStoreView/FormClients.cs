@@ -29,15 +29,7 @@ namespace AbstractJewerlyStoreView
         {
             try
             {
-                var list = logic.Read(null);
-                if (list != null)
-                {
-                    ClientsGridView.DataSource = list;
-                    ClientsGridView.Columns[0].Visible = false;
-                    ClientsGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    ClientsGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    ClientsGridView.Columns[3].Visible = false;
-                }
+                Program.ConfigGrid(logic.Read(null), ClientsGridView);
             }
             catch (Exception ex)
             {

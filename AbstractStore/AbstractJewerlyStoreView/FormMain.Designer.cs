@@ -34,10 +34,12 @@
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.implementorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.messagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jewerliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productJewerliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gettingStartedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +54,7 @@
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonPayed = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
-            this.gettingStartedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createBackUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.messagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 
@@ -64,7 +66,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manualToolStripMenuItem,
             this.reportsToolStripMenuItem,
-            this.gettingStartedToolStripMenuItem});
+
+            this.gettingStartedToolStripMenuItem,
+            this.createBackUpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -111,6 +115,13 @@
             this.implementorsToolStripMenuItem.Text = "Implementors";
             this.implementorsToolStripMenuItem.Click += new System.EventHandler(this.implementorsToolStripMenuItem_Click);
             // 
+            // messagesToolStripMenuItem
+            // 
+            this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
+            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.messagesToolStripMenuItem.Text = "Letter";
+            this.messagesToolStripMenuItem.Click += new System.EventHandler(this.MessagesToolStripMenuItem_Click);
+            // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -142,6 +153,13 @@
             this.productJewerliesToolStripMenuItem.Text = "Product Jewerlies";
             this.productJewerliesToolStripMenuItem.Click += new System.EventHandler(this.ProductJewerliesToolStripMenuItem_Click);
             // 
+            // gettingStartedToolStripMenuItem
+            // 
+            this.gettingStartedToolStripMenuItem.Name = "gettingStartedToolStripMenuItem";
+            this.gettingStartedToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.gettingStartedToolStripMenuItem.Text = "Getting Started";
+            this.gettingStartedToolStripMenuItem.Click += new System.EventHandler(this.gettingStartedToolStripMenuItem_Click);
+            // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
@@ -172,7 +190,7 @@
             // 
             // Client
             // 
-            this.Client.HeaderText = "Клиент";
+            this.Client.HeaderText = "Client";
             this.Client.Name = "Client";
             this.Client.ReadOnly = true;
             this.Client.Width = 150;
@@ -186,7 +204,7 @@
             // 
             // Implementer
             // 
-            this.Implementer.HeaderText = "Исполнитель";
+            this.Implementer.HeaderText = "Implementer";
             this.Implementer.Name = "Implementer";
             this.Implementer.ReadOnly = true;
             this.Implementer.Width = 200;
@@ -199,33 +217,33 @@
             // 
             // Count
             // 
-            this.Count.HeaderText = "Количество";
+            this.Count.HeaderText = "Count";
             this.Count.Name = "Count";
             this.Count.ReadOnly = true;
             // 
             // Sum
             // 
-            this.Sum.HeaderText = "Сумма заказа";
+            this.Sum.HeaderText = "Sum";
             this.Sum.Name = "Sum";
             this.Sum.ReadOnly = true;
             this.Sum.Width = 120;
             // 
             // OrderStatus
             // 
-            this.OrderStatus.HeaderText = "Статус";
+            this.OrderStatus.HeaderText = "Status";
             this.OrderStatus.Name = "OrderStatus";
             this.OrderStatus.ReadOnly = true;
             // 
             // DateCreate
             // 
-            this.DateCreate.HeaderText = "Дата создания";
+            this.DateCreate.HeaderText = "Creation date";
             this.DateCreate.Name = "DateCreate";
             this.DateCreate.ReadOnly = true;
             this.DateCreate.Width = 120;
             // 
             // CompletionDate
             // 
-            this.CompletionDate.HeaderText = "Дата исполнения";
+            this.CompletionDate.HeaderText = "Completion date";
             this.CompletionDate.Name = "CompletionDate";
             this.CompletionDate.ReadOnly = true;
             this.CompletionDate.Width = 120;
@@ -260,19 +278,12 @@
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
-            // gettingStartedToolStripMenuItem
+            // createBackUpToolStripMenuItem
             // 
-            this.gettingStartedToolStripMenuItem.Name = "gettingStartedToolStripMenuItem";
-            this.gettingStartedToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
-            this.gettingStartedToolStripMenuItem.Text = "Getting Started";
-            this.gettingStartedToolStripMenuItem.Click += new System.EventHandler(this.gettingStartedToolStripMenuItem_Click);
-            // 
-            // messagesToolStripMenuItem
-            // 
-            this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
-            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.messagesToolStripMenuItem.Text = "Письма";
-            this.messagesToolStripMenuItem.Click += new System.EventHandler(this.MessagesToolStripMenuItem_Click);
+            this.createBackUpToolStripMenuItem.Name = "createBackUpToolStripMenuItem";
+            this.createBackUpToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.createBackUpToolStripMenuItem.Text = "Create Back Up";
+            this.createBackUpToolStripMenuItem.Click += new System.EventHandler(this.createBackUpToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -325,5 +336,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CompletionDate;
         private System.Windows.Forms.ToolStripMenuItem gettingStartedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem messagesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createBackUpToolStripMenuItem;
     }
 }
