@@ -1,4 +1,3 @@
-
 ﻿using AbstractJewerlyStoreBusinessLogic.Enums;
 using AbstractJewerlyStoreFileImplement.Models;
 using System;
@@ -19,6 +18,8 @@ namespace AbstractJewerlyStoreFileImplement
         private readonly string ProductFileName = "Product.xml";
         private readonly string ProductJewerlyFileName = "ProductComponent.xml";
         private readonly string ClientFileName = "Client.xml";
+        private readonly string ImplementerFileName = "Implementer.xml";
+        public List<Implementer> Implementers { get; set; }
         public List<Client> Clients { get; set; }
         public List<Jewerly> Jewerlies { get; set; }
         public List<Order> Orders { get; set; }
@@ -31,6 +32,7 @@ namespace AbstractJewerlyStoreFileImplement
             Products = LoadProducts();
             ProductJewerlies = LoadProductComponents();
             Clients = LoadClients();
+            Implementers = LoadImplementers();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -47,6 +49,27 @@ namespace AbstractJewerlyStoreFileImplement
             SaveProducts();
             SaveProductJewerlies();
             SaveClients();
+            SaveImplementers();
+        }
+        private List<Implementer> LoadImplementers()
+        {
+            var list = new List<Implementer>();
+            if (File.Exists(ImplementerFileName))
+            {
+                XDocument xDocument = XDocument.Load(ImplementerFileName);
+                var xElements = xDocument.Root.Elements("Implementer").ToList();
+                foreach (var elem in xElements)
+                {
+                    list.Add(new Implementer
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        FIO = elem.Element("FIO").Value,
+                        WorkingTime = Convert.ToInt32(elem.Element("WorkingTime").Value),
+                        PauseTime = Convert.ToInt32(elem.Element("WorkingTime").Value)
+                    });
+                }
+            }
+            return list;
         }
         private List<Client> LoadClients()
         {
@@ -102,10 +125,13 @@ namespace AbstractJewerlyStoreFileImplement
                         ProductId = Convert.ToInt32(elem.Element("ProductId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
-                        Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), elem.Element("Status").Value),
-                        DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value),
-                        DateImplement = string.IsNullOrEmpty(elem.Element("DateImplement").Value) ? (DateTime?)null :
-                        Convert.ToDateTime(elem.Element("DateImplement").Value),
+                        Status = (OrderStatus)Enum.Parse(typeof(OrderStatus),
+                   elem.Element("Status").Value),
+                        DateCreate =
+                   Convert.ToDateTime(elem.Element("DateCreate").Value),
+                        DateImplement =
+                   string.IsNullOrEmpty(elem.Element("DateImplement").Value) ? (DateTime?)null :
+                   Convert.ToDateTime(elem.Element("DateImplement").Value),
                     });
                 }
             }
@@ -217,6 +243,23 @@ namespace AbstractJewerlyStoreFileImplement
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ProductJewerlyFileName);
+            }
+        }
+        private void SaveImplementers()
+        {
+            if (Implementers != null)
+            {
+                var xElement = new XElement("Implementers");
+                foreach (var implementer in Implementers)
+                {
+                    xElement.Add(new XElement("Implementer",
+                    new XAttribute("Id", implementer.Id),
+                    new XElement("FIO", implementer.FIO),
+                    new XElement("WorkingTime", implementer.WorkingTime),
+                    new XElement("PauseTime", implementer.PauseTime)));
+                }
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(ImplementerFileName);
             }
         }
         private void SaveClients()

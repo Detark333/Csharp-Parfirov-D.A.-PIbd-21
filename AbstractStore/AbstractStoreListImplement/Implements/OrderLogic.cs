@@ -1,4 +1,5 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
+using AbstractJewerlyStoreBusinessLogic.Enums;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
 using AbstractStoreListImplement;
@@ -48,6 +49,7 @@ namespace AbstractStoreListImplement.Implements
         {
             order.ProductId = model.ProductId;
             order.ClientId = model.ClientId.Value;
+            order.ImplementerId = model.ImplementerId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -79,7 +81,10 @@ namespace AbstractStoreListImplement.Implements
                     if (order.Id == model.Id.Value
                      || order.DateCreate >= model.DateFrom.Value
                      && order.DateCreate <= model.DateTo.Value
-                     || model.ClientId.HasValue && order.ClientId == model.ClientId)
+                     || model.ClientId.HasValue && order.ClientId == model.ClientId
+                     || model.FreeOrders.HasValue && model.FreeOrders.Value
+                    || model.ImplementerId.HasValue && order.ImplementerId
+                    == model.ImplementerId && order.Status == OrderStatus.Выполняется)
                     {
                         result.Add(CreateViewModel(order));
                         break;
@@ -109,11 +114,21 @@ namespace AbstractStoreListImplement.Implements
                     clientLogin = client.Login;
                 }
             }
+            string implementerFIO = "";
+            foreach (var implementer in source.Implementers)
+            {
+                if (implementer.Id == order.ImplementerId)
+                {
+                    implementerFIO = implementer.FIO;
+                }
+            }
             return new OrderViewModel
             {
                 Id = order.Id,
                 ProductId = order.ProductId,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
+                ImplementerFIO = implementerFIO,
                 ClientLogin = clientLogin,
                 ProductName = productName,
                 Count = order.Count,

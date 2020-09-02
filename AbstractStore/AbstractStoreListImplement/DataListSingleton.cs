@@ -13,6 +13,7 @@ namespace AbstractStoreListImplement
         public List<Product> Products { get; set; }
         public List<ProductJewerly> ProductJewerlies { get; set; }
         public List<Client> Clients { get; set; }
+        public List<Implementer> Implementers { get; set; }
         private DataListSingleton()
         {
             Jewerlies = new List<Jewerly>();
@@ -20,6 +21,7 @@ namespace AbstractStoreListImplement
             Products = new List<Product>();
             ProductJewerlies = new List<ProductJewerly>();
             Clients = new List<Client>();
+            Implementers = new List<Implementer>();
         }
         public static DataListSingleton GetInstance()
         {

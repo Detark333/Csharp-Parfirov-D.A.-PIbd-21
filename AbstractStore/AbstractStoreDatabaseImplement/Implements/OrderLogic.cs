@@ -1,4 +1,5 @@
 ﻿using AbstractJewerlyStoreBusinessLogic.BindingModels;
+using AbstractJewerlyStoreBusinessLogic.Enums;
 using AbstractJewerlyStoreBusinessLogic.Interfaces;
 using AbstractJewerlyStoreBusinessLogic.ViewModels;
 using AbstractStoreDatabaseImplement.Models;
@@ -34,6 +35,7 @@ namespace AbstractStoreDatabaseImplement.Implements
                 element.ClientId = model.ClientId.Value;
                 element.Count = model.Count;
                 element.Sum = model.Sum;
+                element.ImplementerId = model.ImplementerId;
                 element.DateCreate = model.CreationDate;
                 element.DateImplement = model.CompletionDate;
                 element.Status = model.Status;
@@ -69,11 +71,17 @@ namespace AbstractStoreDatabaseImplement.Implements
                 || (model.DateFrom.HasValue && model.DateTo.HasValue
                 && rec.DateCreate >= model.DateFrom.Value
                 && rec.DateCreate <= model.DateTo.Value)
-                || model.ClientId.HasValue && model.ClientId == rec.ClientId)
+                || model.ClientId.HasValue && model.ClientId == rec.ClientId
+                || model.FreeOrders.HasValue && model.FreeOrders.Value
+                && !rec.ImplementerId.HasValue || model.ImplementerId.HasValue
+                && rec.ImplementerId == model.ImplementerId
+                && rec.Status == OrderStatus.Выполняется)
                 .Select(rec => new OrderViewModel
                 {
                     ClientId = rec.ClientId,
                     ClientLogin = rec.Client.Login,
+                    ImplementerId = rec.ImplementerId,
+                    ImplementerFIO = rec.Implementer.ImplementerFIO,
                     Id = rec.Id,
                     Count = rec.Count,
                     Sum = rec.Sum,

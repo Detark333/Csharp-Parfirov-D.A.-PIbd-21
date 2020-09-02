@@ -38,11 +38,10 @@
             this.productJewerliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
-            this.buttonToGiveToPerform = new System.Windows.Forms.Button();
-            this.buttonOrderDone = new System.Windows.Forms.Button();
             this.buttonPayed = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
-            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.implemenetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +50,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manualToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.reportsToolStripMenuItem,
+            this.workUpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -63,7 +63,7 @@
             this.manualToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.jewerlyToolStripMenuItem,
             this.productToolStripMenuItem,
-            this.clientsToolStripMenuItem});
+            this.implemenetsToolStripMenuItem});
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
             this.manualToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.manualToolStripMenuItem.Text = "Manual";
@@ -131,26 +131,6 @@
             this.buttonCreateOrder.UseVisualStyleBackColor = true;
             this.buttonCreateOrder.Click += new System.EventHandler(this.ButtonCreateOrder_Click);
             // 
-            // buttonToGiveToPerform
-            // 
-            this.buttonToGiveToPerform.Location = new System.Drawing.Point(682, 83);
-            this.buttonToGiveToPerform.Name = "buttonToGiveToPerform";
-            this.buttonToGiveToPerform.Size = new System.Drawing.Size(93, 23);
-            this.buttonToGiveToPerform.TabIndex = 3;
-            this.buttonToGiveToPerform.Text = "ToGiveToPerform";
-            this.buttonToGiveToPerform.UseVisualStyleBackColor = true;
-            this.buttonToGiveToPerform.Click += new System.EventHandler(this.ButtonToGiveToPerform_Click);
-            // 
-            // buttonOrderDone
-            // 
-            this.buttonOrderDone.Location = new System.Drawing.Point(682, 112);
-            this.buttonOrderDone.Name = "buttonOrderDone";
-            this.buttonOrderDone.Size = new System.Drawing.Size(93, 23);
-            this.buttonOrderDone.TabIndex = 4;
-            this.buttonOrderDone.Text = "Order has done";
-            this.buttonOrderDone.UseVisualStyleBackColor = true;
-            this.buttonOrderDone.Click += new System.EventHandler(this.ButtonOrderDone_Click);
-            // 
             // buttonPayed
             // 
             this.buttonPayed.Location = new System.Drawing.Point(682, 141);
@@ -171,12 +151,17 @@
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
-            // clientsToolStripMenuItem
+            // workUpToolStripMenuItem
             // 
-            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clientsToolStripMenuItem.Text = "Clients";
-            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
+            this.workUpToolStripMenuItem.Name = "workUpToolStripMenuItem";
+            this.workUpToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.workUpToolStripMenuItem.Text = "Work Up";
+            // 
+            // implemenetsToolStripMenuItem
+            // 
+            this.implemenetsToolStripMenuItem.Name = "implemenetsToolStripMenuItem";
+            this.implemenetsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.implemenetsToolStripMenuItem.Text = "Implemenets";
             // 
             // FormMain
             // 
@@ -185,8 +170,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonPayed);
-            this.Controls.Add(this.buttonOrderDone);
-            this.Controls.Add(this.buttonToGiveToPerform);
             this.Controls.Add(this.buttonCreateOrder);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.menuStrip1);
@@ -210,14 +193,13 @@
         private System.Windows.Forms.ToolStripMenuItem productToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonCreateOrder;
-        private System.Windows.Forms.Button buttonToGiveToPerform;
-        private System.Windows.Forms.Button buttonOrderDone;
         private System.Windows.Forms.Button buttonPayed;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jewerliesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ordersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productJewerliesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem implemenetsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem workUpToolStripMenuItem;
     }
 }
